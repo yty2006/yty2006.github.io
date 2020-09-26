@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hi</title>
+  
+  <subtitle>闫天阳的blog</subtitle>
+  <link href="https://yty2006.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://yty2006.github.io/"/>
+  <updated>2020-08-24T14:21:30.494Z</updated>
+  <id>https://yty2006.github.io/</id>
+  
+  <author>
+    <name>闫天阳</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>(⊙o⊙)…</title>
+    <link href="https://yty2006.github.io/2020/08/23/%E2%8A%99o%E2%8A%99-%E2%80%A6/"/>
+    <id>https://yty2006.github.io/2020/08/23/%E2%8A%99o%E2%8A%99-%E2%80%A6/</id>
+    <published>2020-08-23T15:11:45.000Z</published>
+    <updated>2020-08-24T14:21:30.494Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>(⊙o⊙)…</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="其他" scheme="https://yty2006.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="其他" scheme="https://yty2006.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
+  
+</feed>
