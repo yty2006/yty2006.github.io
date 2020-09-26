@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yty2006.github.io/music/index.html</loc>
+    
+    <lastmod>2020-09-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yty2006.github.io/%E5%8E%86%E5%8F%B2%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html</loc>
     
     <lastmod>2020-09-06</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://yty2006.github.io/404.html</loc>
     
     <lastmod>2020-09-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yty2006.github.io/2020/09/05/music/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
     
   </url>
   
