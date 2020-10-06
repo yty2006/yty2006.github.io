@@ -1,51 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>黑苹果</title>
-      <link href="2020/09/26/%E9%BB%91%E8%8B%B9%E6%9E%9C/"/>
-      <url>2020/09/26/%E9%BB%91%E8%8B%B9%E6%9E%9C/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://pan.baidu.com/s/1rtQKOf0rqSv4sFh2elHSuQ">https://pan.baidu.com/s/1rtQKOf0rqSv4sFh2elHSuQ</a></p><p>提取码: 1202</p><p>比较全,hc中的是dmg格式,其他的是cdr格式镜像,都能用</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 黑苹果 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>(⊙o⊙)…</title>
-      <link href="2020/08/23/%E2%8A%99o%E2%8A%99-%E2%80%A6/"/>
-      <url>2020/08/23/%E2%8A%99o%E2%8A%99-%E2%80%A6/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>(⊙o⊙)…</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>(⊙o⊙)…</title>
+    <url>/2020/08/23/%E2%8A%99o%E2%8A%99-%E2%80%A6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>(⊙o⊙)…</p>
+]]></content>
       <categories>
-          
-          <category> 其他 </category>
-          
+        <category>其他</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 其他 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>黑苹果</title>
+    <url>/2020/09/26/%E9%BB%91%E8%8B%B9%E6%9E%9C/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://pan.baidu.com/s/1rtQKOf0rqSv4sFh2elHSuQ">https://pan.baidu.com/s/1rtQKOf0rqSv4sFh2elHSuQ</a></p>
+<p>提取码: 1202</p>
+<p>比较全,hc中的是dmg格式,其他的是cdr格式镜像,都能用</p>
+]]></content>
+      <tags>
+        <tag>黑苹果</tag>
+      </tags>
+  </entry>
 </search>

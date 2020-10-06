@@ -268,7 +268,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #00000 0%, #00000 100%);
+    background-image: linear-gradient(to right, #000000 0%, #000000 100%);
 }
 
 .text-color {
@@ -284,7 +284,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #000000 0%, #000000 100%);
     opacity: 0.8;
 }
 
@@ -1326,7 +1326,7 @@ thead {
 
 .chip-container .chip-active {
     color: #FFF !important;
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%) !important;
+    background: linear-gradient(to bottom right, #000000 0%, #000000 100%) !important;
     box-shadow: 2px 5px 10px #aaa !important;
 }
 
@@ -1345,7 +1345,7 @@ thead {
 
 .chip-container .chip:hover {
     color: #fff;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%) !important;
+    background: linear-gradient(to right, #000000 0%, #0f9d58 100%) !important;
 }
 
 .chip .tag-length {
