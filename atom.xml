@@ -6,7 +6,7 @@
   <link href="https://yty2006.github.io/atom.xml" rel="self"/>
   
   <link href="https://yty2006.github.io/"/>
-  <updated>2020-09-26T13:07:10.227Z</updated>
+  <updated>2020-10-05T10:05:52.634Z</updated>
   <id>https://yty2006.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>nexT-8.0.0主题的优化</title>
-    <link href="https://yty2006.github.io/2020/09/26/nexT-8-0-0%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BC%98%E5%8C%96/"/>
-    <id>https://yty2006.github.io/2020/09/26/nexT-8-0-0%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BC%98%E5%8C%96/</id>
+    <title>黑苹果</title>
+    <link href="https://yty2006.github.io/2020/09/26/%E9%BB%91%E8%8B%B9%E6%9E%9C/"/>
+    <id>https://yty2006.github.io/2020/09/26/%E9%BB%91%E8%8B%B9%E6%9E%9C/</id>
     <published>2020-09-26T12:50:38.000Z</published>
-    <updated>2020-09-26T13:07:10.227Z</updated>
+    <updated>2020-10-05T10:05:52.634Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="本文仅针对nexT最新版本8-0-0进行优化"><a href="#本文仅针对nexT最新版本8-0-0进行优化" class="headerlink" title="本文仅针对nexT最新版本8.0.0进行优化"></a>本文仅针对nexT最新版本8.0.0进行优化</h3><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><ul><li><p>安装<a href="https://nodejs.org/">node</a>,[git](<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p></li><li><p>注册<a href="https://github.com/">github</a>并登陆,创建代码仓库,名为:用户名.github.io</p></li></ul><p>进入命令行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-cli -g</span><br></pre></td></tr></table></figure><p>cd到一个目录,然后</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>这时,hexo在<a href="127.0.0.1:4000">127.0.0.1:4000</a>运行</p><ul><li>也可以用<code>p=</code>来指定端口,如</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s p&#x3D;8080</span><br></pre></td></tr></table></figure><p>这时hexo在127.0.0.1:8080运行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-theme-next</span><br></pre></td></tr></table></figure><p>或者git clone</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://pan.baidu.com/s/1rtQKOf0rqSv4sFh2elHSuQ">https://pan.baidu.com/s/1rtQKOf0rqSv4sFh2elHSuQ</a></p><p>提取码: 1202</p><p>比较全,hc中的是dmg格式,其他的是cdr格式镜像,都能用</p>]]></content>
     
     
       
@@ -34,7 +34,7 @@
     
     
     
-    <category term="hexo" scheme="https://yty2006.github.io/tags/hexo/"/>
+    <category term="黑苹果" scheme="https://yty2006.github.io/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/"/>
     
   </entry>
   
