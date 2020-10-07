@@ -905,7 +905,7 @@ article a {
 
 article a:hover {
     font-weight: bold;
-    color: #42b983;
+    color: #000000;
     text-decoration: underline;
 }
 
@@ -1933,7 +1933,7 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to bottom right, #000000 0%, #000000 100%);
     width: 48px;
     height: 48px;
 }
