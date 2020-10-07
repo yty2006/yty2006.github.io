@@ -582,7 +582,7 @@
                         <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32</span>&nbsp;字
+                class="white-color">0k</span>&nbsp;字
             
             
             
@@ -690,7 +690,26 @@
 <script>$("body").css("cursor", "url('/normal.cur'), default");
 $("a").css("cursor", "url('/link.cur'), pointer");</script>
 <div class="progress-bar"></div>
-
+<script type="text/javascript" src="/clickBoom.js"></script>
+<script type="text/javascript">
+var OriginTitle = document.title;
+var titleTime;
+document.addEventListener('visibilitychange', function () {
+	if (location.href != "https://www.xxxzhy.com/"){//主页不变
+		if (document.hidden) {
+			//$('[rel="icon"]').attr('href', "/funny.ico");
+			document.title = '/(ㄒoㄒ)/你上哪去了';
+			clearTimeout(titleTime);
+		}else {
+			//$('[rel="icon"]').attr('href', "/favicon.ico");
+			document.title = '(ฅ>ω<*ฅ) 哦,回来了~' + OriginTitle;
+			titleTime = setTimeout(function () {
+				document.title = OriginTitle;
+			}, 2000);
+		}
+	}
+});
+</script>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -744,8 +763,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
