@@ -306,7 +306,72 @@
     </nav>
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/black/pace-theme-fill-left.css" rel="stylesheet">
-<link href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/black/pace-theme-center-radar.css" rel="stylesheet">
+<!DOCTYPE html>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        padding: 0px;
+    }
+ 
+    .test {
+        width: 0px;
+        height: 0px;
+        background-color: #000;
+        margin: 0px 0 0px 0px;
+    }
+</style>
+</head>
+ 
+<body>
+    <div class="test"></div>
+    <script>
+        ;
+        (function (w, d) {
+            var domDiv = d.createElement('div');
+            //修改domDiv的行内样式
+            domDiv.style.cssText = 'position: fixed; top: 0; left: 0; width: 0; height: 7px;' +
+                'box-shadow: 0 0 3px #999; background: -webkit-linear-gradient(left, red , blue );; z-index: 999999; -webkit-transition:width .3s linear;'
+            //append是jquery的方法，dom对象的是appendchild();
+            d.body.appendChild(domDiv);
+            //domH:可视区域的高度
+            var domH = w.innerHeight || d.documentElement.clientHeight || d.body.clientHeight;
+            /**
+             * [通过给window添加scroll事件实现了监控的作用。]
+             * @param  {[type]} ){                var divsw         [description]
+             * @param  {[type]} false      [冒泡阶段]
+             * @return {[type]}            [description]
+             * pageYOffset:滚到了视口顶部的高度。
+             * document.body.offsetHeight:body的高度
+             */
+            w.addEventListener('scroll', function () {
+                var divsw = domDiv.style.width = Math.round(pageYOffset / (d.body.offsetHeight - domH) *
+                    100) + '%';
+            }, false);
+        })(window, document);
+    </script>
+</body>
+</html>
+<script type="text/javascript">
+    var canShowAdsense = function () {
+        return !!0
+    };
+</script>
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</link>
+<script src="https://cdn.bootcss.com/animejs/2.0.2/anime.min.js"></script>
+<script src="https://cdn.bootcss.com/emojify.js/1.1.0/js/emojify.min.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?74ea64bad6ab0292a2fd9a69fac161cc";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </header>
 
     
