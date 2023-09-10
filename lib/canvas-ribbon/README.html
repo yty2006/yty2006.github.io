@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8" />
+        <title> | Crafting</title>
+        <meta name="author" content="闫天阳" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="天阳" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/avatar.jpg" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>CRAFTING</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;CRAFTING</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1></h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/9/10
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 align="center"><a target="_blank" rel="noopener" href="https://github.com/hustcc/ribbon.js">canvas-ribbon.js</a> for <a target="_blank" rel="noopener" href="https://github.com/theme-next">NexT</a></h1>
+
+<h1 align="center">Installation</h1>
+
+<h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2>
+
+<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
+
+<p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
+<pre><code class="sh">$ cd themes/next
+$ ls
+_config.yml  crowdin.yml  docs  gulpfile.js  languages  layout  LICENSE.md  package.json  README.md  scripts  source
+</code></pre>
+<h2 align="center">Step 2 &rarr; Get module</h2>
+
+<p>Install module to <code>source/lib</code> directory:</p>
+<pre><code class="sh">$ git clone https://github.com/theme-next/theme-next-canvas-ribbon source/lib/canvas-ribbon
+</code></pre>
+<h2 align="center">Step 3 &rarr; Set it up</h2>
+
+<p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
+<pre><code class="yml">canvas_ribbon:
+  enable: true
+</code></pre>
+<p><strong>And, if you wants to use the CDN, then need to set:</strong></p>
+<pre><code class="yml">vendors:
+  ...
+  canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
+</code></pre>
+<h1 align="center">Update</h1>
+
+<pre><code class="sh">$ cd themes/next/source/lib/canvas-ribbon
+$ git pull
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2020 - 2023 Crafting
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;闫天阳
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>
