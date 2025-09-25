@@ -162,7 +162,7 @@
     </div>
     <div class="body">
       
-  <div class="wall wall-category">
+  <div class="wall wall-category--plain">
     <div class="wall-main">
       <div class="wall-category-title">
         <div class="title-icon"
@@ -171,7 +171,7 @@
       </div>
       <div class="wall-category-description">技术相关</div>
       <div class="wall-category-tags">
-        <div id="tags-outer"><canvas width="500" height="500" id="tagCanvas"><a href="../tags/cmd/" style="font-size: 14px;">cmd</a> <a href="../tags/%E5%85%B6%E4%BB%96/" style="font-size: 14px;">其他</a> <a href="../tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 30px;">黑苹果</a><canvas></div>
+        <div id="tags-outer"><a href="../tags/cmd/" style="font-size: 1em;">cmd</a> <a href="../tags/%E5%85%B6%E4%BB%96/" style="font-size: 1em;">其他</a> <a href="../tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 1em;">黑苹果</a></div>
       </div>
     </div>
   </div>
@@ -477,35 +477,6 @@ EFI 的基础上迁移到 OpenCore，因此我开始撰写这篇文章。</p></d
     
     <script src="../js/copy-code.js"></script>
     
-  
-    <script type="text/javascript"
-            charset="utf-8"
-            src="../js/tagcanvas.min.js"></script>
-    <script type = "text/javascript">
-        window.onload = function() {
-            try {
-                TagCanvas.Start('tagCanvas', '', {
-                    outlineThickness: 1,
-                    maxSpeed: 0.03,
-                    // freezeActive: true,
-                    // freezeDecel: true,
-                    textColour: null,
-                    textColour: null,
-                    outlineColour: "#aaa",
-                    weight: true,
-                    padding: 4,
-                    // clickToFront: 200,
-                    fadIn: 200,
-                    // pinchZoom: true,
-                    wheelZoom: false,
-                    initial: [0.1, -0.03]
-                });
-            } catch (e) {
-                // something went wrong, hide the canvas container
-                document.getElementById('tags-outer').style.display = 'none';
-            }
-        };
-    </script>
   
 
   </body>

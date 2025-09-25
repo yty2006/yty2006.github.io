@@ -162,7 +162,7 @@
     </div>
     <div class="body">
       
-  <div class="wall wall-category">
+  <div class="wall wall-category--plain">
     <div class="wall-main">
       <div class="wall-category-title">
         <div class="title-icon"
@@ -171,7 +171,7 @@
       </div>
       <div class="wall-category-description">记录我的学习历程</div>
       <div class="wall-category-tags">
-        <div id="tags-outer"><canvas width="500" height="500" id="tagCanvas"><a href="../tags/Java/" style="font-size: 14px;">Java</a><canvas></div>
+        <div id="tags-outer"><a href="../tags/Java/" style="font-size: 1em;">Java</a></div>
       </div>
     </div>
   </div>
@@ -442,35 +442,6 @@
     
     <script src="../js/copy-code.js"></script>
     
-  
-    <script type="text/javascript"
-            charset="utf-8"
-            src="../js/tagcanvas.min.js"></script>
-    <script type = "text/javascript">
-        window.onload = function() {
-            try {
-                TagCanvas.Start('tagCanvas', '', {
-                    outlineThickness: 1,
-                    maxSpeed: 0.03,
-                    // freezeActive: true,
-                    // freezeDecel: true,
-                    textColour: null,
-                    textColour: null,
-                    outlineColour: "#aaa",
-                    weight: true,
-                    padding: 4,
-                    // clickToFront: 200,
-                    fadIn: 200,
-                    // pinchZoom: true,
-                    wheelZoom: false,
-                    initial: [0.1, -0.03]
-                });
-            } catch (e) {
-                // something went wrong, hide the canvas container
-                document.getElementById('tags-outer').style.display = 'none';
-            }
-        };
-    </script>
   
 
   </body>
