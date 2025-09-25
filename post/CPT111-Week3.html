@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf8"/>
+    
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+    <title>
+      
+        CPT111-Week3 | Tianyang's Site
+      
+    </title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="天阳"/>
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="../images/avatar.jpg"/>
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../images/avatar.jpg"/>
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../images/avatar.jpg"/>
+    
+    
+      <link rel="mask-icon"
+            href="../images/avatar.jpg"
+            color=""/>
+    
+    
+    
+      <style>
+
+@font-face {
+  font-family: sourceHanSerif;
+  src: url(../font/normal.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: sourceHanSerif;
+  src: url(../font/bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: AfacadFlux;
+  src: url(../font/AfacadFlux-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: AfacadFlux;
+  src: url(../font/AfacadFlux-SemiBold.ttf);
+  font-weight: bold;
+}
+
+:root {
+  --fancy-font: sourceHanSerif;
+}
+
+[lang=en] {
+  --fancy-font: AfacadFlux, sourceHanSerif;
+}
+</style>
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='../css/layout.css'/>
+    
+    
+  <link rel="stylesheet" type="text/css" href="../css/post.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/>
+
+  <meta name="generator" content="Hexo 8.0.0"></head>
+  <body>
+    
+      <div id="search-mask">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章内容">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#888" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    
+    <div class=head--sticky>
+      <div class="nav">
+        <a href='../index.html' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="../images/avatar.jpg"/>
+        </a>
+        <input id="navBtn" type="checkbox"/>
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="../learning">学习</a>
+              
+                <a class="nav-menu-item" href="../tech">技术</a>
+              
+                <a class="nav-menu-item" href="../math">数学</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">CPT111-Week3</div>
+        <div class="post-info">
+          
+  <a href="../tags/Java/" class="post-tag">#Java</a>
+
+
+          <span class="post-date">2025-09-25</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="week-3-control-flow"><em>Week 3: Control Flow</em></h1>
+<h2 id="exercise-3.1-harmonic-numbers">Exercise #3.1 Harmonic
+Numbers</h2>
+<p><strong>Harmonic numbers</strong> are a sequence of numbers that
+arises in various fields of mathematics. The <strong>n</strong>-th
+harmonic number, denoted as <code>*Hn*</code>, is defined as the sum of
+the reciprocals of the first <strong>n</strong> natural numbers: <img
+src="/img/image%20(2)%20(2).png" alt="img" /> Write a Java program
+<em>HarmonicNumber</em> that on input a positive integer <em>n</em>,
+prints the <em>n</em> -th harmonic number.</p>
+<h6 id="test-case-1">Test case 1:</h6>
+<table>
+<thead>
+<tr>
+<th>Input:</th>
+<th>Output:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1.5</td>
+</tr>
+</tbody>
+</table>
+<h6 id="test-case-2">Test case 2:</h6>
+<table>
+<thead>
+<tr>
+<th>Input:</th>
+<th>Output:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>2.9289682539682538</td>
+</tr>
+</tbody>
+</table>
+<h6 id="my-code">My code:</h6>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">hns</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">double</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> sc.nextInt(), sum = <span class="hljs-number">0</span>, num = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> ( num &lt;= n ) &#123;<br>            sum += <span class="hljs-number">1</span>/num;<br>            num ++;<br>        &#125;<br>        System.out.println(sum);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="exercise-3.2-black-jack">Exercise #3.2 Black Jack</h2>
+<p>In Black Jack card game, we call a value <em>busts</em> if it exceeds
+a sum of 21. Write a Java program <em>BlackJack</em> that on input 2
+integer values greater than 0, prints a single integer of whichever
+value is nearest to 21 without going bust. Print -1 if both values bust.
+<img src="/img/Blackjack-Cards-Image.png" alt="img" /></p>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Input</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">20 19</td>
+<td style="text-align: left;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;">19 22</td>
+<td style="text-align: left;">19</td>
+</tr>
+<tr>
+<td style="text-align: left;">22 23</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<h6 id="my-code-1">My code:</h6>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">blkjack</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span> a, b;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        a = sc.nextInt();<br>        b = sc.nextInt();<br>        <span class="hljs-keyword">if</span>(a&gt;=b)&#123;<br>            <span class="hljs-keyword">if</span>(a&lt;<span class="hljs-number">22</span>)<br>                System.out.println(a);<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(b&lt;<span class="hljs-number">22</span>)<br>                System.out.println(b);<br>            <span class="hljs-keyword">else</span> System.out.println(-<span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(a&lt;b) &#123;<br>            <span class="hljs-keyword">if</span>(b&lt;<span class="hljs-number">22</span>)<br>                System.out.println(b);<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(a&lt;<span class="hljs-number">22</span>)<br>                System.out.println(a);<br>                <span class="hljs-keyword">else</span> System.out.println(-<span class="hljs-number">1</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="exercise-3.3-pandemic-spread">Exercise #3.3 Pandemic Spread</h2>
+<p>Write a Java program <em>PandemicSpread</em> to simulate how
+<em>fast</em> a pandemic spread with the following input: init : the
+initial number of infected persons on day 1numInfect : the average
+number of healthy people that one infected person newly infects per
+daypopulation : the total number of people in the areaReturn the day on
+which the <em>entire</em> population will be infected.</p>
+<figure>
+<img src="/img/pandemicspread.png" alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Input</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1 2 10</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr>
+<td style="text-align: left;">5 3 1000</td>
+<td style="text-align: left;">5</td>
+</tr>
+</tbody>
+</table>
+<h6 id="my-code-2">My code:</h6>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">pandsp</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span> init, numInfect, population, day = <span class="hljs-number">1</span>;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        init = sc.nextInt();<br>        numInfect = sc.nextInt();<br>        population = sc.nextInt();<br>        <span class="hljs-keyword">while</span>(init &lt; population)&#123;<br>            init += numInfect*init;<br>            day ++;<br>        &#125;<br>        System.out.println(day);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="exercise-3.4-right-triangle">Exercise #3.4 Right Triangle</h2>
+<p>Write a Java program RightTriangle that takes three integer input
+numbers and determines whether they make up the side lengths of a right
+triangle . <img src="/img/right-triangle1.png" alt="img" /></p>
+<p>Your program must print output true if and only if the following two
+conditions are true :</p>
+<ol type="1">
+<li>All three integers are positive (greater than zero).</li>
+<li>You can find two integers where the sum of the squares of those two
+integers is equal to the square of the third integer.</li>
+</ol>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Input</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">5 12 13</td>
+<td style="text-align: left;">true</td>
+</tr>
+<tr>
+<td style="text-align: left;">5 4 3</td>
+<td style="text-align: left;">true</td>
+</tr>
+<tr>
+<td style="text-align: left;">-3 -4 5</td>
+<td style="text-align: left;">false</td>
+</tr>
+</tbody>
+</table>
+<h6 id="my-code-3">My code:</h6>
+<p><strong>(a bit strange tho, but it works)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RT</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span> a, b, c;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        a = sc.nextInt();<br>        b = sc.nextInt();<br>        c = sc.nextInt();<br>        System.out.println((a&gt;<span class="hljs-number">0</span> &amp;&amp; b&gt;<span class="hljs-number">0</span> &amp;&amp; c&gt;<span class="hljs-number">0</span> )&amp;&amp;(a &gt; b &amp;&amp; a &gt; c &amp;&amp; a * a == b * b + c * c || b &gt; a &amp;&amp; b &gt; c &amp;&amp; b * b == a * a + c * c || c &gt; a &amp;&amp; c &gt; b &amp;&amp; c * c == b * b + a * a));<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="lab-exercise-3.1-armstrong-number">Lab Exercise #3.1 Armstrong
+Number</h2>
+<p>An Armstrong number is an <em>n</em>-digit number that equals the sum
+of the <em>n</em>th power of its digits. For example,</p>
+<ul>
+<li>153 is a three-digit number where the sum of the cubes of the
+individual digits equal</li>
+<li>1531634 is a four-digit number where the sum of the 4th power of the
+individual digits equal 1634<img src="/img/image%20(4).png"
+alt="img" /></li>
+</ul>
+<p>Write a Java program <em>Armstrong</em> that on input two positive
+integers <em>a</em> and <em>k</em>, prints the first <em>k</em>
+Armstrong numbers greater than or equal to <em>a</em>.</p>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Input</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">100 2</td>
+<td style="text-align: left;">153 370</td>
+</tr>
+<tr>
+<td style="text-align: left;">1500 1</td>
+<td style="text-align: left;">1634</td>
+</tr>
+</tbody>
+</table>
+<h6 id="my-code-4">My code:</h6>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Armstrong</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> sc.nextInt();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> sc.nextInt();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (k != <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> a;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> Integer.toString(num);<br>            <span class="hljs-type">int</span> <span class="hljs-variable">length</span> <span class="hljs-operator">=</span> str.length();<br>            <span class="hljs-keyword">while</span> (num &gt; <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">digit</span> <span class="hljs-operator">=</span> num % <span class="hljs-number">10</span>;<br>                num = num / <span class="hljs-number">10</span>;<br>                sum += Math.pow(digit, length);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (sum == a) &#123;<br>                k--;<br>                System.out.println(sum);<br>            &#125;<br>            a ++;<br>            sum = <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="lab-3-challenge---hailstone-sequence-length">Lab 3 Challenge -
+Hailstone Sequence Length</h2>
+<p>The <em>Hailstone sequence</em> is computed as follows:</p>
+<ul>
+<li>Start with an integer number nIf n is even, the next number in the
+sequence is n/2</li>
+<li>If n is odd, the next number is 3n+1<br />
+</li>
+<li>Continue until it reaches 1For example, for n = 3, the sequence is
+3, 10, 5, 16, 8, 4, 2, 1 and for n = 12, the sequence is 12, 6, 3, 10,
+5, 16, 8, 4, 2, 1</li>
+</ul>
+<figure>
+<img src="/img/Hailstone.png" alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>Write a Java program <em>HailStone</em> that on input a positive
+integer n, prints the <strong><em>length</em></strong> of the Hailstone
+sequence starting at n.</p>
+<p>Note that, interestingly, we still do <em>not</em> know whether the
+Hailstone sequence will ever reaches 1 for all starting n ! This is also
+known in the literature as the <em>Collatz conjecture</em>.</p>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Input</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">10</td>
+</tr>
+</tbody>
+</table>
+<h6 id="my-code-5">My code:</h6>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">import java.util.Scanner;<br><br>public class Hailstone &#123;<br>    public static void main(String[] args) &#123;<br>        Scanner sc = new Scanner(System.in);<br>        int n = sc.nextInt(), l = 1;<br>        while (n != 1) &#123;<br>            if (n % 2 == 0) &#123;<br>                n /= 2;<br>                l ++;<br>            &#125;<br>            else &#123;<br>                n = 3 * n + 1;<br>                l ++;<br>            &#125;<br>        &#125;<br>        System.out.println(l);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+      </div>
+    </div>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="../images/avatar.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="../z.jpg" />
+  </div>
+  <div class="like-text">“给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="../post/CPT111-Week2.html">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      CPT111-Week2
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="../tags/Java/" class="post-tag">#Java</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="popular-posts"><div class="popular-posts-item"><div class="popular-posts-title"><a href="\post\CPT111-Week2.html" title="CPT111-Week2" rel="bookmark">CPT111-Week2</a></div></div><div class="popular-posts-item"><div class="popular-posts-title"><a href="\post\CPT111-Week1.html" title="CPT111-Week1" rel="bookmark">CPT111-Week1</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+    </div>
+    <div class="foot">
+  <div class="foot-inner">
+    <div class="foot__head">
+      
+        
+          <div class="foot-line">
+            <div class="matts">海</div><div class="matts">内</div><div class="matts">存</div><div class="matts">知</div><div class="matts">己</div>
+          </div>
+        
+      
+        
+          <div class="foot-line">
+            <div class="matts">天</div><div class="matts">涯</div><div class="matts">若</div><div class="matts">比</div><div class="matts">邻</div>
+          </div>
+        
+      
+    </div>
+    <div class="foot__body">
+      
+        <div class="foot-item">
+          <div class="foot-item__head">朋友</div>
+          <div class="foot-item__body">
+            
+            
+
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/icon/icon-link.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://tianyang.eu.org">Backup Site</a>
+          </div>
+        
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/icon/icon-link+.svg" />
+            <a class="foot-link" href="mailto:yty_01202@163.com?subject=申请https://www.tianyang.art的友链">交换友链</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+          </div>
+        </div>
+      
+      
+        <div class="foot-item">
+          <div class="foot-item__head">账号</div>
+          <div class="foot-item__body">
+            
+
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/logo-github.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/yty2006">Github</a>
+          </div>
+        
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/logo-zh.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/yty06">Zhihu</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+          </div>
+        </div>
+      
+      <div class="foot-item">
+        <div class="foot-item__head">联系</div>
+        <div class="foot-item__body">
+          
+
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/icon/icon-email.svg" />
+            <a class="foot-link" href="mailto:yty_061202@163.com">yty_061202@163.com</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+        </div>
+        <div id="sitetime">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+    <div class="copyright">
+      ©2025 &nbsp; <a href="https://www.tianyang.art">Tianyang's Blog</a>
+    </div>
+      </div>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* 
+    Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+    var t1 = Date.UTC(2025,09,23,15,00,00); //北京时间2018-2-13 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML="    本站居然运行了"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }
+  siteTime();
+</script>
+    </div>
+  </div>
+</div>
+
+
+    
+    
+      <script src="../js/search.js"></script>
+      <script>
+        searchInitialize("../search.json")
+      </script>
+    
+    <script src="../js/copy-code.js"></script>
+    
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  const param = JSON.parse('{"enable":true,"owner":null,"admin":null,"repo":null,"clientID":null,"clientSecret":null,"distractionFreeMode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN"}')
+  let title = location.pathname.substr(0, 50); 
+  param.id = title
+  const gitalk = new Gitalk(param)
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+  </body>
+</html>

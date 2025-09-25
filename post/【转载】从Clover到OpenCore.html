@@ -1,465 +1,1011 @@
-
 <!DOCTYPE html>
-<html lang="cn">
-    <head>
-        <meta charset="utf-8" />
-        <title>【转载】从Clover到OpenCore | Crafting</title>
-        <meta name="author" content="闫天阳" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="天阳" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/images/avatar.jpg" />
-        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-
-<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
-<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
-
-
-
-<script src="/js/lib/preview.js"></script>
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
-    <meta name="generator" content="Hexo 6.3.0"></head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-                <div id="loading" v-show="loading">
-                    <div id="loading-circle">
-                        <h2>LOADING</h2>
-                        <p>加载过慢请开启缓存 浏览器默认开启</p>
-                        <img src="/images/loading.gif" />
-                    </div>
-                </div>
-            </transition>
-            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>CRAFTING</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;CRAFTING</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                    </div>
-                </a>
-                
-                <a href="/tags">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
-
-            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                <div class="article">
-    <div>
-        <h1>【转载】从Clover到OpenCore</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2020/10/8
-        </span>
-        
-        
-    </div>
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf8"/>
     
-    <div class="content" v-pre>
-        <p>【转载】从Clover到OpenCore<br> 2020-04-14 |  2020-05-13 |  教程 |  84181<br> 21k |  38 分钟</p>
-<p>由于是转载文章，文章中的我特指作者：SukkaW</p>
-<p>随着 OpenCore 日渐成熟、acidanthera 团队宣布放弃旗下绝大部分内核驱动（包括 Lilu、VirtualSMC、WhateverGreen、AppleALC 等）对 Clover 的兼容性支持，与其届时被迫换到 OpenCore，不如主动开始迁移。</p>
-<p>当然面对迁移，有的人会选择直接抛弃之前 Clover 的全部成果，直接从零开始配置 OpenCore。但是我相信对于大部分人来说更希望通过简简单单的修补，在现有的 EFI 的基础上迁移到 OpenCore，因此我开始撰写这篇文章。</p>
-<span id="more"></span>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+    <title>
+      
+        【转载】从Clover到OpenCore | Tianyang's Site
+      
+    </title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="天阳"/>
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="../images/avatar.jpg"/>
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../images/avatar.jpg"/>
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../images/avatar.jpg"/>
+    
+    
+      <link rel="mask-icon"
+            href="../images/avatar.jpg"
+            color=""/>
+    
+    
+    
+      <style>
 
-<p>然而不幸的是从 Clover 切换到 OpenCore 并不是一个简单的任务，因此这种迁移应该是渐进式的，不可能一蹴而就。那什么是「渐进式」呢？意思就是，如果你按照本文的步骤一步一步按顺序进行，那么大部分迁移步骤产生的修改，在 Clover 下一样可用，你不需要一下子就扔掉 Clover 。</p>
-<p>序言以外应该写在最前面的话<br>OpenCore 丢掉了不少 Clover 的历史包袱。毫无疑问依然有不少 Clover 设置在 OpenCore 是没有可以直接替代的。因此 Clover 完全照搬到 OpenCore 是肯定行不通的。<br>在迁移到 OpenCore 之前，Clover 的大部分设置都要精简：用 SSDT 代替、改为注入设备属性（Device Properties）。这篇教程的主题就是教你这些事情。<br>如果你一开始在组织 Clover 的 EFI 时就有洁癖的话，你会发现迁移到 OpenCore 出人意料地简单。<br>只有完美的 Clover 的 EFI，在按照本文档的步骤精简后能获得完美的 OpenCore 的 EFI。如果你的 EFI 是不完美的，那么迁移到 OpenCore 也一定是不完美的。因此，如果你是为了解决不完美、才想迁移到 OpenCore，那么我建议先在 Clover 下完善。<br>独木难成林。这篇教程初次发布以后，Bat.bat 等许多大佬在远景论坛、Telegram 上提供了许多意见，正是在他们的帮助下，这篇教程得以不断完善。<br>修改 SSDT &#x2F; DSDT 以搭配 OpenCore<br>OpenCore 和 Clover 最大的不同其实是，acidanthera 决定在 OpenCore 中设置的 SMBIOS 机型信息、DSDT 和 SSDT，都将一视同仁的对所有操作系统生效。这样做的目的是让黑苹果更像白苹果，但是却有可能导致在 macOS 上正常可用的 ACPI 表到了 Windows 上反而会出问题。因此，迁移的第一步我个人推荐从修改现有的 SSDT 和 DSDT 开始，因为在 OpenCore 下能用的 SSDT、DSDT，在 Clover 下是一定可用的。也就是说，当你完成这一步后，你可以继续使用 Clover 而不受影响。</p>
-<p>这里主要介绍对 Method 函数的修改方法。以 GPRW（6D0D）补丁为例，在 Clover 上我们一般采用这种方法：</p>
-<p>&#x2F;&#x2F;<br>&#x2F;&#x2F; In config ACPI, GPRW to XPRW<br>&#x2F;&#x2F; Find:     47505257 02<br>&#x2F;&#x2F; Replace:  58505257 02<br>&#x2F;&#x2F;<br>DefinitionBlock (“”, “SSDT”, 2, “SUKA”, “GPRW”, 0)<br>{<br>    External(XPRW, MethodObj)<br>    Method (GPRW, 2, NotSerialized)<br>    {<br>        If ((0x6D &#x3D;&#x3D; Arg0))<br>        {<br>            Return (Package ()<br>            {<br>                0x6D,<br>                Zero<br>            })<br>        }</p>
+@font-face {
+  font-family: sourceHanSerif;
+  src: url(../font/normal.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: sourceHanSerif;
+  src: url(../font/bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: AfacadFlux;
+  src: url(../font/AfacadFlux-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: AfacadFlux;
+  src: url(../font/AfacadFlux-SemiBold.ttf);
+  font-weight: bold;
+}
+
+:root {
+  --fancy-font: sourceHanSerif;
+}
+
+[lang=en] {
+  --fancy-font: AfacadFlux, sourceHanSerif;
+}
+</style>
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='../css/layout.css'/>
+    
+    
+  <link rel="stylesheet" type="text/css" href="../css/post.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/>
+
+  <meta name="generator" content="Hexo 8.0.0"></head>
+  <body>
+    
+      <div id="search-mask">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章内容">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#888" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    
+    <div class=head--sticky>
+      <div class="nav">
+        <a href='../index.html' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="../images/avatar.jpg"/>
+        </a>
+        <input id="navBtn" type="checkbox"/>
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="../learning">学习</a>
+              
+                <a class="nav-menu-item" href="../tech">技术</a>
+              
+                <a class="nav-menu-item" href="../math">数学</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">【转载】从Clover到OpenCore</div>
+        <div class="post-info">
+          
+  <a href="../tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" class="post-tag">#黑苹果</a>
+
+
+          <span class="post-date">2020-10-08</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <p>【转载】从Clover到OpenCore 2020-04-14 | 2020-05-13 | 教程 | 84181 21k
+| 38 分钟</p>
+<p>由于是转载文章，文章中的我特指作者：SukkaW</p>
+<p>随着 OpenCore 日渐成熟、acidanthera
+团队宣布放弃旗下绝大部分内核驱动（包括
+Lilu、VirtualSMC、WhateverGreen、AppleALC 等）对 Clover
+的兼容性支持，与其届时被迫换到 OpenCore，不如主动开始迁移。</p>
+<p>当然面对迁移，有的人会选择直接抛弃之前 Clover
+的全部成果，直接从零开始配置
+OpenCore。但是我相信对于大部分人来说更希望通过简简单单的修补，在现有的
+EFI 的基础上迁移到 OpenCore，因此我开始撰写这篇文章。</p>
+<span id="more"></span>
+<p>然而不幸的是从 Clover 切换到 OpenCore
+并不是一个简单的任务，因此这种迁移应该是渐进式的，不可能一蹴而就。那什么是「渐进式」呢？意思就是，如果你按照本文的步骤一步一步按顺序进行，那么大部分迁移步骤产生的修改，在
+Clover 下一样可用，你不需要一下子就扔掉 Clover 。</p>
+<p>序言以外应该写在最前面的话 OpenCore 丢掉了不少 Clover
+的历史包袱。毫无疑问依然有不少 Clover 设置在 OpenCore
+是没有可以直接替代的。因此 Clover 完全照搬到 OpenCore 是肯定行不通的。
+在迁移到 OpenCore 之前，Clover 的大部分设置都要精简：用 SSDT
+代替、改为注入设备属性（Device
+Properties）。这篇教程的主题就是教你这些事情。 如果你一开始在组织 Clover
+的 EFI 时就有洁癖的话，你会发现迁移到 OpenCore 出人意料地简单。
+只有完美的 Clover 的 EFI，在按照本文档的步骤精简后能获得完美的 OpenCore
+的 EFI。如果你的 EFI 是不完美的，那么迁移到 OpenCore
+也一定是不完美的。因此，如果你是为了解决不完美、才想迁移到
+OpenCore，那么我建议先在 Clover 下完善。
+独木难成林。这篇教程初次发布以后，Bat.bat 等许多大佬在远景论坛、Telegram
+上提供了许多意见，正是在他们的帮助下，这篇教程得以不断完善。 修改 SSDT /
+DSDT 以搭配 OpenCore OpenCore 和 Clover 最大的不同其实是，acidanthera
+决定在 OpenCore 中设置的 SMBIOS 机型信息、DSDT 和
+SSDT，都将一视同仁的对所有操作系统生效。这样做的目的是让黑苹果更像白苹果，但是却有可能导致在
+macOS 上正常可用的 ACPI 表到了 Windows
+上反而会出问题。因此，迁移的第一步我个人推荐从修改现有的 SSDT 和 DSDT
+开始，因为在 OpenCore 下能用的 SSDT、DSDT，在 Clover
+下是一定可用的。也就是说，当你完成这一步后，你可以继续使用 Clover
+而不受影响。</p>
+<p>这里主要介绍对 Method 函数的修改方法。以 GPRW（6D0D）补丁为例，在
+Clover 上我们一般采用这种方法：</p>
+<p>// // In config ACPI, GPRW to XPRW // Find: 47505257 02 // Replace:
+58505257 02 // DefinitionBlock (““,”SSDT”, 2, “SUKA”, “GPRW”, 0) {
+External(XPRW, MethodObj) Method (GPRW, 2, NotSerialized) { If ((0x6D ==
+Arg0)) { Return (Package () { 0x6D, Zero }) }</p>
 <pre><code>    If ((0x0D == Arg0))
-    &#123;
+    {
         Return (Package ()
-        &#123;
+        {
             0x0D, 
             Zero
-        &#125;)
-    &#125;
+        })
+    }
     Return (XPRW (Arg0, Arg1))
-&#125;
-</code></pre>
-<p>}<br>这个 SSDT 的原理是，通过 DSDT 重命名将原始的 GPRW,2 函数重命名为 XPRW,2 ，然后通过 SSDT 新增一个 GPRW 函数，这样实际 ACPI 调用 GPRW 函数时就是调用的 SSDT 里添加的 GPRW 函数。</p>
-<p>但是现在，OpenCore 将会对所有操作系统一视同仁，所有 SSDT、DSDT 重命名对包括 Windows 在内的所有操作系统生效，那么 SSDT 中的 GPRW 函数也会在 Windows 生效，可能就会导致未知的后果。所以，我们需要通过 OSI 函数，判断当前操作系统，确保函数的行为只对某一个操作系统生效：</p>
-<p>&#x2F;&#x2F;<br>&#x2F;&#x2F; In config ACPI, GPRW to XPRW<br>&#x2F;&#x2F; Find:     47505257 02<br>&#x2F;&#x2F; Replace:  58505257 02<br>&#x2F;&#x2F;<br>&#x2F;&#x2F; 需要注意的是，ACPI 里不支持非 ASCII 字符注释，这里仅做示例，不可直接用于编译<br>DefinitionBlock (“”, “SSDT”, 2, “OCLT”, “GPRW”, 0)<br>{<br>    External(XPRW, MethodObj) &#x2F;&#x2F; 对 XPRW 函数的外部引用<br>    Method (GPRW, 2, NotSerialized)<br>    {<br>        If (_OSI (“Darwin”)) &#x2F;&#x2F; 如果当前的操作系统是 macOS，生效以下行为<br>        {<br>            If ((0x6D &#x3D;&#x3D; Arg0))<br>            {<br>                Return (Package ()<br>                {<br>                    0x6D,<br>                    Zero<br>                })<br>            }</p>
+}</code></pre>
+<p>} 这个 SSDT 的原理是，通过 DSDT 重命名将原始的 GPRW,2 函数重命名为
+XPRW,2 ，然后通过 SSDT 新增一个 GPRW 函数，这样实际 ACPI 调用 GPRW
+函数时就是调用的 SSDT 里添加的 GPRW 函数。</p>
+<p>但是现在，OpenCore 将会对所有操作系统一视同仁，所有 SSDT、DSDT
+重命名对包括 Windows 在内的所有操作系统生效，那么 SSDT 中的 GPRW
+函数也会在 Windows 生效，可能就会导致未知的后果。所以，我们需要通过 OSI
+函数，判断当前操作系统，确保函数的行为只对某一个操作系统生效：</p>
+<p>// // In config ACPI, GPRW to XPRW // Find: 47505257 02 // Replace:
+58505257 02 // // 需要注意的是，ACPI 里不支持非 ASCII
+字符注释，这里仅做示例，不可直接用于编译 DefinitionBlock (““,”SSDT”, 2,
+“OCLT”, “GPRW”, 0) { External(XPRW, MethodObj) // 对 XPRW 函数的外部引用
+Method (GPRW, 2, NotSerialized) { If (_OSI (“Darwin”)) //
+如果当前的操作系统是 macOS，生效以下行为 { If ((0x6D == Arg0)) { Return
+(Package () { 0x6D, Zero }) }</p>
 <pre><code>        If ((0x0D == Arg0))
-        &#123;
+        {
             Return (Package ()
-            &#123;
+            {
                 0x0D, 
                 Zero
-            &#125;)
-        &#125;
-    &#125;
+            })
+        }
+    }
     // 否则，直接返回 XPRW 函数。只有三种情况下会走到这一步：
     // 第一个参数不是 0x6D、第一个参数不是 0x0D、当前操作系统不是 macOS
     // XPRW 是 ` DSDT ` 中原始的 GPRW 函数重命名而来
     // 所以这一步实际上是调用了原始 ` DSDT ` 中原始的 GPRW 方法
     Return (XPRW (Arg0, Arg1))
-&#125;
-</code></pre>
-<p>}<br>上面以 GPRW 为例介绍了相关思路，接下来我们以亮度快捷键补丁为例实际操作一下如何一步一步修改 SSDT。大部分亮度快捷键都是基于 EC Query 触发的，因此在 Clover 中我们的亮度快捷键 SSDT 可能是这样的：</p>
-<p>&#x2F;&#x2F; In config ACPI, _Q14 renamed XQ14<br>&#x2F;&#x2F; Find:     5F 51 31 34<br>&#x2F;&#x2F; Replace:  58 51 31 34</p>
-<p>&#x2F;&#x2F; In config ACPI, _Q15 renamed XQ15<br>&#x2F;&#x2F; Find:     5F 51 31 35<br>&#x2F;&#x2F; Replace:  58 51 31 35</p>
-<p>DefinitionBlock(“”, “SSDT”, 2, “SUKA”, “BrightFN”, 0)<br>{<br>    External(_SB.PCI0.LPCB.KBD, DeviceObj)<br>    External(_SB.PCI0.LPCB.EC, DeviceObj)</p>
+}</code></pre>
+<p>} 上面以 GPRW
+为例介绍了相关思路，接下来我们以亮度快捷键补丁为例实际操作一下如何一步一步修改
+SSDT。大部分亮度快捷键都是基于 EC Query 触发的，因此在 Clover
+中我们的亮度快捷键 SSDT 可能是这样的：</p>
+<p>// In config ACPI, _Q14 renamed XQ14 // Find: 5F 51 31 34 // Replace:
+58 51 31 34</p>
+<p>// In config ACPI, _Q15 renamed XQ15 // Find: 5F 51 31 35 // Replace:
+58 51 31 35</p>
+<p>DefinitionBlock(““,”SSDT”, 2, “SUKA”, “BrightFN”, 0) {
+External(_SB.PCI0.LPCB.KBD, DeviceObj) External(_SB.PCI0.LPCB.EC,
+DeviceObj)</p>
 <pre><code>Scope (_SB.PCI0.LPCB.EC)
-&#123;
+{
     Method (_Q14, 0, NotSerialized)//up
-    &#123;
+    {
         Notify(\_SB.PCI0.LPCB.KBD, 0x0406)
-    &#125;
+    }
 
     Method (_Q15, 0, NotSerialized)//down
-    &#123;
+    {
         Notify(\_SB.PCI0.LPCB.KBD, 0x0405)
-    &#125;
-&#125;
-</code></pre>
-<p>}<br>如果想知道亮度快捷键补丁的工作原理，请参看我的另一篇文章「黑苹果自定义键盘 Fn 快捷键」。</p>
+    }
+}</code></pre>
+<p>}
+如果想知道亮度快捷键补丁的工作原理，请参看我的另一篇文章「黑苹果自定义键盘
+Fn 快捷键」。</p>
 <p>根据同样的思路，我们先在 Method 定义中添加 OSI 函数判断操作系统：</p>
-<p>DefinitionBlock(“”, “SSDT”, 2, “hack”, “BrightFN”, 0)<br>{<br>    External(_SB.PCI0.LPCB.KBD, DeviceObj)<br>    External(_SB.PCI0.LPCB.EC, DeviceObj)</p>
+<p>DefinitionBlock(““,”SSDT”, 2, “hack”, “BrightFN”, 0) {
+External(_SB.PCI0.LPCB.KBD, DeviceObj) External(_SB.PCI0.LPCB.EC,
+DeviceObj)</p>
 <pre><code>Scope (_SB.PCI0.LPCB.EC)
-&#123;
+{
     Method (_Q14, 0, NotSerialized)//up
-    &#123;
-</code></pre>
+    {</code></pre>
 <ul>
-<li><pre><code>       If (_OSI (&quot;Darwin&quot;))
-</code></pre>
-</li>
-<li><pre><code>       &#123;
-            Notify(\_SB.PCI0.LPCB.KBD, 0x0406)
-</code></pre>
-</li>
-<li><pre><code>       &#125;
-  &#125;
-  
-  Method (_Q15, 0, NotSerialized)//down
-  &#123;
-</code></pre>
-</li>
-<li><pre><code>       If (_OSI (&quot;Darwin&quot;))
-</code></pre>
-</li>
-<li><pre><code>       &#123;
-            Notify(\_SB.PCI0.LPCB.KBD, 0x0405)
-</code></pre>
-</li>
-<li><pre><code>       &#125;
-  &#125;
-</code></pre>
-  }<br>  }<br>  由于这里不是以 Return 结束的，所以我们要为 If 加上 Else：</li>
-</ul>
-<p>DefinitionBlock(“”, “SSDT”, 2, “hack”, “BrightFN”, 0)<br>{<br>    External(_SB.PCI0.LPCB.KBD, DeviceObj)<br>    External(_SB.PCI0.LPCB.EC, DeviceObj)</p>
-<pre><code>Scope (_SB.PCI0.LPCB.EC)
-&#123;
-    Method (_Q14, 0, NotSerialized)//up
-    &#123;
-</code></pre>
-<ul>
-<li><pre><code>       If (_OSI (&quot;Darwin&quot;))
-</code></pre>
-</li>
-<li><pre><code>       &#123;
-            Notify(\_SB.PCI0.LPCB.KBD, 0x0406)
-</code></pre>
-</li>
-<li><pre><code>       &#125; Else &#123;
-</code></pre>
-</li>
-<li></li>
-<li><pre><code>       &#125;
-  &#125;
-  
-  Method (_Q15, 0, NotSerialized)//down
-  &#123;
-</code></pre>
-</li>
-<li><pre><code>       If (_OSI (&quot;Darwin&quot;))
-</code></pre>
-</li>
-<li><pre><code>       &#123;
-            Notify(\_SB.PCI0.LPCB.KBD, 0x0405)
-</code></pre>
-</li>
-<li><pre><code>       &#125; Else &#123;
-</code></pre>
-</li>
-<li></li>
-<li><pre><code>       &#125;
-  &#125;
-</code></pre>
-  }<br>  }<br>  在 Else 区域中，调用原始 DSDT 中原始的 _Q14、_Q15 函数、也就是现在已经被重命名为 XQ14 和 XQ15 的函数。当然，别忘了在文件头部添加对 XQ14 和 XQ15 的函数的外部引用：</li>
-</ul>
-<p>DefinitionBlock(“”, “SSDT”, 2, “hack”, “BrightFN”, 0)<br>{<br>    External(_SB.PCI0.LPCB.KBD, DeviceObj)<br>    External(_SB.PCI0.LPCB.EC, DeviceObj)</p>
-<ul>
-<li>External(_SB.PCI0.LPCB.EC.XQ14, MethodObj)</li>
-<li>External(_SB.PCI0.LPCB.EC.XQ15, MethodObj)</li>
-</ul>
-<pre><code>Scope (_SB.PCI0.LPCB.EC)
-&#123;
-    Method (_Q14, 0, NotSerialized)//up
-    &#123;
-</code></pre>
-<ul>
-<li><pre><code>       If (_OSI (&quot;Darwin&quot;))
-</code></pre>
-</li>
-<li><pre><code>       &#123;
-            Notify(\_SB.PCI0.LPCB.KBD, 0x0406)
-</code></pre>
-</li>
-<li><pre><code>       &#125; Else &#123;
-</code></pre>
-</li>
-<li><pre><code>             \_SB.PCI0.LPCB.EC.XQ14()
-</code></pre>
-</li>
-<li><pre><code>       &#125;
-  &#125;
-  
-  Method (_Q15, 0, NotSerialized)//down
-  &#123;
-</code></pre>
-</li>
-<li><pre><code>       If (_OSI (&quot;Darwin&quot;))
-</code></pre>
-</li>
-<li><pre><code>       &#123;
-            Notify(\_SB.PCI0.LPCB.KBD, 0x0405)
-</code></pre>
-</li>
-<li><pre><code>       &#125; Else &#123;
-</code></pre>
-</li>
-<li><pre><code>             \_SB.PCI0.LPCB.EC.XQ15()
-</code></pre>
-</li>
-<li><pre><code>       &#125;
-  &#125;
-</code></pre>
-  }<br>  }<br>  这样就大功告成了。</li>
-</ul>
-<p>是不是有些头昏脑涨？实际上，和 Clover 现成的 SSDT 补丁库一样，OpenCore 也有现成的 SSDT 补丁库 OC-little，由资深黑苹果爱好者们维护。我也在其中贡献了一些补丁（如 PTWSAK 关机变重启修复）和说明。 你在 Clover 中使用的 SSDT 补丁，大部分都有对应的 OpenCore 下可用的 SSDT 替代，免去了你手动修改的痛苦。而且，你还可能通过 OC-little 库里的其他补丁修复了一些你之前的 SSDT 补丁没有解决的问题。</p>
-<p>当然，对于一些 OC-little 中没有等价替代的补丁，你仍然需要手动修改、添加操作系统判断；对于直接修补的 DSDT，你也只能自己在 Method 中添加对应的判断。</p>
-<p>如果你完成了对 SSDT、DSDT 的修改，现在备份你的 EFI、然后修改后的 SSDT、DSDT 放到 EFI&#x2F;Clover&#x2F;ACPI&#x2F;patched 之中，然后以 -v 重启，看看能不能正常开机。如果可以正常开机，登录以后打开终端执行以下命令、查看日志中是否包括 ACPI Error：</p>
-<p>$ log show –last boot | grep -Ei “ACPI”<br>如果正常开机，没有 ACPI Error，那么恭喜你，你已经迈出了向 OpenCore 迁移的第一步，而且此时你依然还在继续使用 Clover ，你的黑苹果没有收到任何影响。</p>
-<p>减少不必要的 DSDT 重命名<br>acidanthera 团队认为，应该尽可能减少 DSDT 重命名、减少改动以避免对设备硬件造成伤害。</p>
-<p>以下是一些不再需要的重命名，你可以参考这个表自己精简 DSDT 重命名、使用 SSDT 代替：</p>
-<p>EHC1 to EH01 和 EHC2 to EH02 ：建议由 OpenCore 官方的 SSDT-EHCx_OFF 关闭 EHC 控制器。Skylake 这类六代以上已经没有 EHC 控制器了，可以直接删除。<br>SAT0 to SATA 和 SAT1 to SATA ：实质上完全没用。<br>HECI to IMEI、HEC1 to IMEI、MEI to IMEI 和 IDER to MEID：WhateverGreen 能够处理这个问题。<br>GFX0 to IGPU、PEG0 to GFX0、PEGP to GFX0 和 SL01 to PEGP：WhateverGreen 能够处理这个问题。<br>EC0 to EC、H_EC to EC、ECDV to EC 和 PGEC to EC ：虽然 macOS 的 USB 电源管理需要名称为 EC 的控制器，但是你完全可以在 OC-little 中找到「仿冒 EC」的相关 SSDT 补丁。<br>HDAS to HDEF、CAVS to HDEF 和 AZAL to HDEF ：AppleALC 能够处理这个问题，除非你在用 VoodooHDA 万能声卡。<br>STAS to Noop ：建议由 OC-little 中的 SSDT-AWAC 相关补丁替代。<br>经 Bat.bat 大佬指出，由于新的时钟设备 AWAC 的普及，用 Noop 会导致同时启用两个时钟设备，在 macOS 下只有一个能正常工作、但是在 Windows 下面暴露两个设备无疑对系统有害，同时也严重违反 ACPI 规范。STAS 这个变量的意义使 AWAC 和 RTC 互锁以避免这种危害。因此，使用 SSDT-AWAC 是更理想的办法。</p>
-<p>PXSX to ANS1 和 PXSX to ANS2 ：建议用 NVMeFix 这个 kext 修复 NVMe SSD 的电源管理。<br>LPC0 to LPCB ：如果你要添加 SMBUS 支持，OC-little 中分别有 SBUS 的 SSDT 注入补丁和 MCHC 设备补丁。<br>顺便提醒一下，使用 OC-little 的补丁的时候，需要注意设备的原始 DSDT 中的 LPC 总线名称，并且要自己修改 SSDT 以使 LPC 总线匹配。</p>
-<p>PC00 to PCIO、FPU to MATH、TMR to TIMR、GBE1 to ETH0 和 PIC to IPIC ：这些重命名也是实质上是完全没用的。<br>_OSI to XOSI 和 OSID to XSID ：除非你的某些硬件设备只能在 Windows 下工作（比如 I2C 触摸板只能在 Windows 下使用，再比如 ThinkPad 对 FreeBSD 的特殊优化），否则完全没有必要使用 SSDT-XOSI 补丁来伪装操作系统。而且大部分情况下，直接定制 SSDT 也可以解除某些硬件的操作系统限制。<br>关于「定制 SSDT 以解除限制」，Bat.bat 大佬做了一些说明：一种方法是通过「预置变量法」（详见 OC-little 的「总述」章节）禁用原始设备的函数如 _STA，另一种方法是通过重命名实现对相关 _STA 的函数的精确重命名，然后通过 SSDT 添加新的 _STA 函数（SSDT 中可以添加 OSI 操作系统判断函数）。</p>
-<p>_DSM to XDSM ：首先遍历一下你的 SSDT 补丁中没有依赖 _DSM 的，如果没有，这个重命名也应该删除，因为这个重命名涉及的范围实在太大了、太过于危险。<br>我的建议是，尽可能只添加和 Method 名称有关的重命名（如 GPRW to XPRW、_Q14 to XQ14），而且随后要通过 SSDT 确保在非 macOS 操作系统下要调用并返回原始函数，确保在非 macOS 操作系统下的原始 DSDT 行为不会被改变。如果万不得已要添加其它重命名（如通过重命名禁用某些设备），那么就要权衡这一重命名的后果。</p>
-<p>如果你完成了精简 DSDT 重命名并保存了 config，接下来的操作还是一样的，备份原始 EFI、然后以 -v 重启，看看能不能正常开机。如果可以正常开机，登录以后打开终端执行以下命令、查看日志中是否包括 ACPI Error：</p>
-<p>$ log show –last boot | grep -Ei “ACPI”<br>完成这一步，你依然没有必要离开 Clover 。我说过了，「渐进式」地迁移，嗯？</p>
-<p>摆脱对 Clover ACPI Quirks 的依赖<br>Clover 实在是非常方便。一个开关，关机变重启就修复了；三个开关，HPET、IRQ、TIMR 就修复了；等等等等。但是 OpenCore 是没有内置这些 ACPI 修复的，所以在 Clover 下用开关实现的 ACPI 修复现在都必须用 SSDT 实现。所幸的是，我们依然可以从 OC-little 里找到绝大部分我们需要的补丁。</p>
-<p>FixIPIC：参考 OC-little 的「声卡 IRQ 补丁」章节<br>FixSBUS：参考 OC-little 的「注入 SBUS 设备」<br>FixShutdown：参考 OC-little 的「PTSWAK 综合补丁章节」，需要添加其中的 EXT1 插件补丁（该补丁由我贡献）<br>FixDisplay：使用 WhateverGreen 和定制缓冲帧补丁解决<br>AddMCHC：参考 OC-little 的「注入缺失的 MCHC」章节<br>FixHDA：使用 AppleALC 即可<br>FixHPET：参考 OC-little 的「声卡 IRQ 补丁」章节<br>FixSATA：这个先不管它，OpenCore 中有个 ExternalDiskIcons 的 Quirk，也可以使用 innie.kext 解决。<br>FixADP1：使用 DSDT 重命名 AC0_ to ADP1，可能还要额外注入 Name (_PRW, Package (0x02) {0x1C,0x03})。<br>FixRTC：参考 OC-little 的「声卡 IRQ 补丁」章节<br>FixTIMR：参考 OC-little 的「声卡 IRQ 补丁」章节<br>AddPNLF：参考 OC-little 的「注入 PNLF」章节<br>AddIMEI：使用 WhateverGreen 即可<br>FixIntelGfx：使用 WhateverGreen 即可<br>AddHDMI：使用 WhateverGreen 即可<br>除了这些开关以外，Clover 还有一些其它的 ACPI 设定，也有与之对应的替代。</p>
-<p>DisableASPM：没有很好的代替方法，可以在设备属性（DeviceProperties）中分别添加相关设备的 PCI 总线位置并注入属性 pci-aspm-default | DATA | &lt;00&gt;。<br>PluginType：参考 OC-little 的「注入 X86」章节<br>Generate P States 和 Generate C States：这些是六代以前 CPU 才需要的设置，可以用 ssdtPRGen.sh 生成对应的 SSDT。<br>当然之后的事情还是一样的，以 -v 重启，正常开机后打开终端查看日志中是否包括 ACPI Error：</p>
-<p>$ log show –last boot | grep -Ei “ACPI”<br>当你把所有 Clover 的开关都用 SSDT 代替以后，你离迁移到 OpenCore 就越来越近了。</p>
-<p>更新设备属性<br>使用缓冲帧补丁驱动 Intel 核显<br>如果你还在用 Clover 的 InjectIntel 的方式来驱动 Intel 核显的话，是时候更换到 WhateverGreen 和缓冲帧补丁的方式了。</p>
-<p>建议参考以下几篇文章：</p>
-<p>使用 WhateverGreen 驱动 Intel 核显 | 醉渔小站<br>Hackintool(原Intel FB-Patcher)使用教程及插入姿势 | 黑果小兵的部落阁<br>Intel 核显驱动常见问题 | WhateverGreen （务必看英文版，中文翻译严重过时）<br>新的声卡 layout-id 注入方式<br>大部分黑苹果的声卡教程都已经推荐此处留空、直接在设备属性中注入 layout-id 了，不过我还是再冗笔一下。</p>
-<p>下载 acidanthera 开发的工具 gfxutils，使用下述命令找出声卡的 PCI 总线位置：</p>
-<p>$ path&#x2F;to&#x2F;gfxutils -f HDEF<br>$ path&#x2F;to&#x2F;gfxutils -f HDAS<br>$ path&#x2F;to&#x2F;gfxutils -f HDAU<br>然后在设备属性中添加 PCI 总线位置、注入 layout-id 属性。</p>
-<p>至于 AFGLowPowerState，需要额外为声卡设备注入 AFGLowPowerState 属性，值为 DATA | &lt;01000000&gt;、至于 ResetHDA，推荐安装 JackFix。</p>
-<p>开始组织 OpenCore 目录<br>终于是时候了，所有的准备工作都做完了！你可以抽出一天（最好占卜一下是否是吉日），沐浴更衣，然后开始组织你的 OpenCore 目录。</p>
-<p>下载 OpenCore 所需文件<br>OpenCorePkg - OpenCore 本体、一些 SSDT 补丁、目录结构<br>MacInfoPkg - 导出你当前的三码、以及生成新的三码<br>AppleSupportPkg - 包括三个 EFI 驱动，ApfsDriverLoader、VBoxHfs、AudioDxe<br>OcBinaryData - 包含两个闭源驱动 HfsPlus.efi 和 ExFatDxe.efi，以及 OpenCore 官方主题的图标文件。<br>非常推荐安装 OpenCore 官方做的主题，和真 Mac 的 BootPicker 一模一样（除了没有网络图标）。不过那可能是另一篇文章的主题了。<br>决定你使用的配置文件编辑器<br>ProperTree：一个 Python 编写的 plist 编辑器，专门优化了 OpenCore 和 Clover 配置文件编写。<br>Xcode：非常不推荐，Xcode 11 不仅花里胡哨、而且处理 plist data 和大整数方面存在问题。<br>简单来说，Apple 没有再开放旧版的 Xcode 10 下载、而且 Apple 的 CDN 还有防盗链。因此如果我要写一篇从 Apple 官方下载 Xcode 10 的教程，那么会比你现在看的这篇的「从 Clover 到 OpenCore」要长得多。<br>如果你和我一样成功下载了 Xcode 10 或者就没有升级到 Xcode 11：我刚才什么都没写，你什么都没看见。<br>OpenCore Configurator：Clover Configurator 作者的新作品。很适合新手使用。<br>OpenCore 的配置文件变更非常频繁，因此只应该用 最新版的 OpenCore Configurator 搭配 最新的正式版的 OpenCore，否则配置文件格式错误将会导致无法引导。<br>OpenCore Configurator 有不少低级 Bug（后来更新时都修复了），比如之前有一个版本，在应对 VoodooPS2Controller 和 VooooI2C 这种嵌套 kext 时，会只添加内部 kext 的 dsYM 签名文件、却不添加内部 kext 本体。<br>反正就是，使用后果自负。<br>生成目录结构<br>解压下载的 OpenCore 并解压，将其中的 EFI 目录 复制出来到别处。</p>
-<p>直到配置好以后，再将这个目录合并进硬盘上的 EFI 分区。</p>
-<p>将 Docs 目录下的 Sample.list 复制到 EFI&#x2F;OC 目录下、并重命名为 config.plist。</p>
-<p>如果你下载的是 OpenCore 0.5.7 版本，还需要额外将 Reources 目录复制到 EFI&#x2F;OC 目录之中。</p>
-<p>解压下载的 AppleSupportPkg，将其中的 Drivers 目录和 Tools 目录中的文件复制到 EFI&#x2F;OC&#x2F;Drivers 目录和 EFI&#x2F;OC&#x2F;Tools 目录中。</p>
-<p>解压下载的 OcBinaryData，将其中 Drivers 目录复制到 EFI&#x2F;OC&#x2F;Drivers 目录中。</p>
-<p>删除不需要的文件<br>删除 Drivers 目录中的这些文件：</p>
-<p>ExFatDxe 和 ExFatDxeLegacy：除非你的 EFI 分区或者某个系统分区是 ExFAT 分区格式的，否则不需要保留。<br>HfsPlus、HfsPlusLegacy 和 VBoxHfs：三者只要留其中一个即可。一般推荐用 HfsPlus，比 VBoxHfs 速度快三倍。在四代以前机型上应该用 HfsPlusLegcay 而不是 HfsPlus。<br>AppleUsbKbDxe 或 OpenUsbKbDxe：这是为三代以前机型使用的，现代的机器应该使用 OpenCore 中的 KeySupport 这个 Quirk。<br>NvmExpressDxe：这是为四代以前机型使用的 NVMe 硬盘加载驱动，现代的机器已经不需要了。<br>XhciDxe：为二代以前的主板提供 XHCI 支持的，现代的机器已经不需要了。<br>HiiDatabase：为四代以前的设备提供 UEFI 界面字体渲染支持的，现代的机器已经不需要了。<br>删除 Tools 目录中的这些文件：</p>
-<p>BootKicker：调用 Mac 内置的引导界面，是用于给白苹果安装 OpenCore 时用的，黑苹果用不上。<br>现在，你的 OpenCore EFI 目录的结构应该是这样的：</p>
-<p>EFI<br>├── BOOT<br>│   └── BOOTx64.efi<br>└── OC<br>    ├── ACPI<br>    ├── Drivers<br>    │   ├── ApfsDriverLoader.efi<br>    │   ├── AudioDxe.efi<br>    │   ├── HfsPlus.efi<br>    │   ├── OpenCanopy.efi<br>    │   └── OpenRuntime.efi<br>    ├── Kexts<br>    ├── OpenCore.efi<br>    ├── Resources<br>    └── Tools<br>        ├── ChipTune.efi<br>        ├── ……<br>        └── VerifyMsrE2.efi<br>现在，你可以把你的 SSDT、DSDT 从 Clover 里的 Clover&#x2F;ACPI&#x2F;Patched 复制出来、粘贴进 EFI&#x2F;OC&#x2F;ACPI 目录中；将 Kext 从 Clover&#x2F;Kexts&#x2F;*&#x2F; 中复制出来粘贴进 EFI&#x2F;OC&#x2F;Kexts 目录中。</p>
-<p>开始配置 OpenCore<br>这里我就不再赘述 OpenCore 的配置教程了。这里推荐几个写的不错的教程和足够有用的参考资料。</p>
-<p>OpenCore 参考文档。当你解压下载的 OpenCore 时，Docs&#x2F;Configuration.pdf 文件就是 OpenCore 的官方文档。这是最权威的 OpenCore 参考资料、没有之一。<br>OpenCore 简体中文参考手册。OpenCore 参考手册的翻译，由我和一些黑苹果爱好者们共同在维护。<br>上面两份参考资料资料适合你在配置时不知道某个选项的具体作用、具体副作用时参考用，但是不适合直接对着它们配置 config.plist。<br>如果想要快速上手 OpenCore 配置，应该参考下面的教程：</p>
-<p>OpenCore Vanilla Guide。OpenCore 官方认可写得较好的新手教程。这篇教程受众是第一次接触黑苹果就想用 OpenCore 的人，因此内容写得非常浅显<br>精解 OpenCore | 黑果小兵的部落阁。国内最早的 OpenCore 介绍文档之一，提供了不少配置思路和 Quirks 的推荐配置。<br>使用 OpenCore 引导黑苹果 | XJN’s Blog。比较详细的 OpenCore 配置介绍，但是这篇文章的排版我实在是欣赏不来。<br>OpenCore 引导迁移折腾记录 | 宇宙よりも遠い場所。内容详细的 OpenCore 配置介绍，提供了不少 Quirks 的推荐配置。<br>Clover 中的部分配置，如 DSDT 重命名，由于在之前已经精简，因此可以将 Find 和 Replace 的十六进制字符串逐对复制到 OpenCore 的配置文件中。</p>
-<p>Clover 中的设置在 OpenCore 的等效配置<br>现在你开始跟着我推荐的教程和参考资料开始配置 OpenCore 了。接下来我会写一些 Clover 中一些选项在 OpenCore 的对应等效配置，在配置 OpenCore 时别忘了跟着看看。</p>
-<p>Boot 的相关设置<br>引导参数：OpenCore 中 NVRAM -&gt; Add -&gt; 7C436110-AB2A-4BBB-A880-FE41995C9F82 -&gt; boot-args<br>NeverHibernate：Misc -&gt; Boot -&gt; HibernateMode -&gt; None<br>其实不再建议禁用休眠，由于 OpenCore 的行为和白苹果更加接近，以至于已经可以实现 macOS 的完美休眠。<br>Default Boot Volume：OpenCore 中 Misc - Security - AllowSetDefaults - true<br>然后在 OpenCore 的引导菜单处使用 Ctrl + Enter 按键进行选择<br>你也可以直接用「系统偏好设置」中的「启动磁盘」设置<br>DefaultBackgroundColor：OpenCore 中的 NVRAM -&gt; Add -&gt; 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14-&gt; DefaultBackgroundColor ，需要自己将 RGB 转换为 HEX。<br>EFILoginHiDPI：OpenCore 中 NVRAM -&gt; Add -&gt; 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 -&gt; EFILoginHiDPI | Data | &lt;&gt;<br>0 -&gt; &lt;00000000&gt;<br>1 -&gt; &lt;01000000&gt;<br>flagstate：OpenCore 中 NVRAM -&gt; Add -&gt; 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 -&gt; flagstate | Data | &lt;&gt;<br>0 -&gt; &lt;00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000&gt;<br>注意自行判断 NVRAM 键值对位置<br>UIScale：NVRAM -&gt; Add -&gt; 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 -&gt; UIScale | Data | &lt;&gt;<br>1 -&gt; &lt;01&gt;<br>2 -&gt; Data | &lt;02&gt;<br>CPU 相关配置<br>Type：在 OpenCore 中有对应的 Platforminfo -&gt; SMBIOS -&gt; ProcessorType 可以设置处理器类型<br>在 这个文件 查看可以选用的值<br>HWPEnable：如果你真的要依赖 MSR 0x770 （注意这里说的不是原生电源管理 MSR 0xe2）的 HWP 电源管理，建议安装 headkaze 开发的 HWPEnable.kext。HackinTool 也是他开发的。<br>QEMU：OpenCore 已经完整支持虚拟机，因此 OpenCore 中不包含这一选项。<br>TurboDisable：建议用 CPUFriend 或者 ssdtPRGen.sh 来修复电源管理。<br>设备属性相关设置<br>USB<br>FixOwnership：OpenCore 中 UEFI -&gt; Quirk -&gt; ReleaseUsbOwnership<br>ClockID：需要自己注入对应的设备属性（Device Properties），属性为 AAPL,clock-id<br>HighCurrent：需要自己注入对应的设备属性（Device Properties），属性为 AAPL,HighCurrent<br>对于 macOS 10.11 来说 HighCurrent 已经没啥用了。对于更新版的 macOS，推荐用 OC-little 中的 SSDT-USBX 补丁。<br>FakeID<br>同样使用 gfxutils 工具找到 PCI 总线位置，然后分别注入相关属性：</p>
-<p>USB<br>device-id<br>device_type<br>device_type<br>IMEI<br>device-id<br>vendor-id<br>WIFI<br>name<br>compatible<br>LAN<br>device-id<br>compatible<br>vendor-id<br>XHCI<br>device-id<br>device_type: UHCI<br>device_type: OHCI<br>device_type: EHCI<br>device-id<br>AAPL,current-available<br>AAPL,current-extra<br>AAPL,current-available<br>AAPL,current-extra<br>AAPL,current-in-sleep<br>built-in<br>device_type: XHCI<br>device-id<br>AAPL,current-available<br>AAPL,current-extra<br>AAPL,current-available<br>AAPL,current-in-sleep<br>built-in<br>Clover 中相关的图形设置<br>和前文一样，这些在 Clover 中设置的属性都需要改为注入对应的设备属性即可。</p>
-<p>InjectAti:<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; deviceID<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; Connectors<br>InjectNvidia:<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; DeviceID<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; Family<br>FakeAti:<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; device-id<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; ATY,DeviceID<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; @0,compatible<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; vendor-id<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; ATY,VendorID<br>BootDisplay:<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; @0,AAPL,boot-display<br>Intel 核显推荐使用 WhateverGreen 和缓冲帧补丁驱动。</p>
-<p>一般的，在注入仿造显卡或仿造 VBIOS 的时候，更推荐使用 SSDT 搭配 WhateverGreen 的方式。至于 EDID 注入，WhateverGreen 的文档中有 详细介绍。</p>
-<p>内核扩展驱动（Kext）相关<br>KernelPm 和 AppleIntelCPUPM：对应 OpenCore 中 Kernel -&gt; Quirks -&gt; AppleXcpmCfgLock -&gt; YES 和 Kernel -&gt; Quirks -&gt; AppleCpuPmCfgLock -&gt; YES。<br>DellSMBIOSPatch ：在 OpenCore 中对应了两个 Quirk：<br>Kernel -&gt; Quirks -&gt; CustomSMBIOSGuid -&gt; YES<br>PlatformInfo -&gt; UpdateSMBIOSMode -&gt; Custom<br>Kernel LAPIC 和 KernelXCPM：分别对应 OpenCore 中的 Kernel -&gt; Quirks -&gt; LapicKernelPanic -&gt; YES 和 Kernel -&gt; Quirks -&gt; AppleXcpmExtraMsrs -&gt; YES<br>AppleRTC：<br>Comment：Disable RTC checksum update on poweroff<br>Enabled：YES<br>Count：1<br>Base：__ZN8AppleRTC14updateChecksumEv<br>Identifier：com.apple.driver.AppleRTC<br>Limit：0<br>Find：<br>Replace：c3<br>FakeCPUID：OpenCore 提供了专门的 Emulate 功能。<br>除此以外，一些常用的 Kext Patch 在 OpenCore 中也有了对应了 Quirk。</p>
-<p>解除 USB 15 端口限制，以前根据不同的系统需要打不同的 Kext Patch，现在只需要 OpenCore 一个 Quirk：Kernel -&gt; Quirks -&gt; XhciPortLimit -&gt; YES<br>内置硬盘变外置硬盘，也只需要一个 Quirk：kernel -&gt; Quirks -&gt; ExternalDiskIcons -&gt; YES<br>和前面的 FixSATA 不同，FixSATA 顾名思义只修复 SATA 硬盘，而 OpenCore 这个 Quirks 会修复所有的硬盘。<br>为 SATA SSD 提供 TRIM 现在也只需要启用一个 Quirk：Kernel -&gt; Quirks -&gt; ThirdPartyDrive<br>SMBIOS 机型信息和系统参数<br>Product Name：PlatformInfo -&gt; Generic -&gt; SystemProductName<br>Serial Number：PlatformInfo –&gt; Generic -&gt; SystemSerialNumber<br>Board Serial Number：PlatformInfo -&gt; Generic -&gt; MLB<br>SmUUID：PlatformInfo -&gt; Generic -&gt; SystemUUID<br>Slots AAPL Injection：需要注入到设备属性中<br>DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; APPL,slot-name | string | Add slot<br>CustomUUID：就连 Clover 都不推荐配置这一项，OpenCore 直接就不提供硬件 UUID 配置功能<br>InjectSystemID：兼容变色龙的历史遗留配置，OpenCore 也不再提供<br>BacklightLevel：需要注入到 NVRAM 中<br>NVRAM -&gt; Add -&gt; 7C436110-AB2A-4BBB-A880-FE41995C9F82 -&gt; backlight-level | Data | <Insert value><br>NvidiaWeb：需要注入到 NVRAM 中<br>NVRAM -&gt; Add -&gt; 7C436110-AB2A-4BBB-A880-FE41995C9F82 -&gt; nvda_drv: &lt;31&gt;<br>配置好 OpenCore 以后，可以将 OpenCore 复制到 U 盘或者硬盘中。需要注意的是，EFI&#x2F;BOOT&#x2F;BOOTx64.efi 需要直接替换。在添加引导项时，OpenCore 必须 从 EFI&#x2F;BOOT&#x2F;BOOTx64.efi 启动而不是从 EFI&#x2F;OC&#x2F;OpenCore.efi 启动。如果启动项中添加的不是 EFI&#x2F;BOOT&#x2F;BOOTx64.efi，那么有很大的概率你会遇到各种奇怪的问题。</p>
-<p>清理 Clover 残余<br>重启到 OpenCore 引导之前，务必清理掉 Clover 的残留文件：</p>
-<p>sudo rm -rf &#x2F;Library&#x2F;PreferencePanes&#x2F;Clover.prefPane # 删除 <code>Clover</code> 位于系统偏好设置中的面板</p>
-<h1 id="删除-Clover-的自动脚本"><a href="#删除-Clover-的自动脚本" class="headerlink" title="删除 Clover 的自动脚本"></a>删除 <code>Clover</code> 的自动脚本</h1><p>rm -rf “&#x2F;etc&#x2F;rc.clover.lib”<br>rm -rf “&#x2F;etc&#x2F;rc.boot.d&#x2F;10.save_and_rotate_boot_log.local”<br>rm -rf “&#x2F;etc&#x2F;rc.boot.d&#x2F;20.mount_ESP.local”<br>rm -rf “&#x2F;etc&#x2F;rc.boot.d&#x2F;70.disable_sleep_proxy_client.local.disabled”<br>rm -rf “&#x2F;etc&#x2F;rc.boot.d&#x2F;80.save_nvram_plist.local”<br>rm -rf “&#x2F;etc&#x2F;rc.shutdown.local”<br>rm -rf “&#x2F;etc&#x2F;rc.boot.d”<br>rm -rf “&#x2F;etc&#x2F;rc.shutdown.d”</p>
-<h1 id="删除-Clover-的守护进程"><a href="#删除-Clover-的守护进程" class="headerlink" title="删除 Clover 的守护进程"></a>删除 <code>Clover</code> 的守护进程</h1><p>launchctl unload ‘&#x2F;Library&#x2F;LaunchDaemons&#x2F;com.slice.CloverDaemonNew.plist’<br>rm -rf ‘&#x2F;Library&#x2F;LaunchDaemons&#x2F;com.slice.CloverDaemonNew.plist’<br>rm -rf ‘&#x2F;Library&#x2F;Application Support&#x2F;Clover&#x2F;CloverDaemonNew’<br>rm -rf ‘&#x2F;Library&#x2F;Application Support&#x2F;Clover&#x2F;CloverLogOut’<br>rm -rf ‘&#x2F;Library&#x2F;Application Support&#x2F;Clover&#x2F;CloverWrapper.sh’<br>除此以外，还要删除 EFI 分区中的 nvram.plist 文件。</p>
-<p>在 OpenCore 中还需要重置 NVRAM。可以在 OpenCore 引导菜单中，按下空格键显示隐藏条目，最后一个条目就是 OpenCore 的重置 NVRAM 功能。</p>
-<p>原文链接：<br><a target="_blank" rel="noopener" href="https://blog.skk.moe/post/from-clover-to-opencore/">https://blog.skk.moe/post/from-clover-to-opencore/</a></p>
-<p>感谢名单<br>Apple 的 macOS<br>RehabMan维护的项目：OS-X-Clover-Laptop-Config Laptop-DSDT-Patch OS-X-USB-Inject-All等<br>Acidanthera 维护的项目：OpenCorePkg lilu AirportBrcmFixup WhateverGreen VirtualSMC AppleALC BrcmPatchRAM MaciASL 等<br>headkaze 提供的工具：hackintool PinConfigurator BrcmPatchRAM<br>CloverHackyColor维护的项目：CloverBootloader CloverThemes<br>宪武整理的：P-little OC-little<br>chris1111维护的项目：VoodooHDA Wireless USB Adapter Clover<br>zxystd开发的itlwm IntelBluetoothFirmware<br>lihaoyun6提供的工具：CPU-S macOS-Displays-icon SidecarPatcher<br>sukka更新维护的从 Clover 到 OpenCore —— Clover 迁移 OpenCore 指南<br>xzhih提供的工具：one-key-hidpi<br>Bat.bat更新维护的精解OpenCore<br>shuiyunxc 更新维护的OpenCore配置错误、故障与解决办法<br>athlonreg更新维护的OpenCore 0.5+ 部件补丁 Common-patches-for-hackintosh<br>github.com<br>码云 gitee.io<br>扣钉 coding.net<br>参考及引用：<br><a target="_blank" rel="noopener" href="https://deviwiki.com/wiki/Dell">https://deviwiki.com/wiki/Dell</a><br><a target="_blank" rel="noopener" href="https://deviwiki.com/wiki/Dell_Wireless_1820A_(DW1820A)">https://deviwiki.com/wiki/Dell_Wireless_1820A_(DW1820A)</a><br>Hervé 更新的Broadcom 4350:<a target="_blank" rel="noopener" href="https://osxlatitude.com/forums/topic/12169-bcm4350-cards-registry-of-cardslaptops-interop/">https://osxlatitude.com/forums/topic/12169-bcm4350-cards-registry-of-cardslaptops-interop/</a><br>Hervé 更新的DW1820A支持机型列表:<a target="_blank" rel="noopener" href="https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/">https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/</a><br>nickhx 提供的蓝牙驱动：<a target="_blank" rel="noopener" href="https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/?do=findComment&comment=92833">https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/?do=findComment&amp;comment=92833</a><br>xjn819： 使用OpenCore引导黑苹果 300系列主板正确使用AptioMemoryFix.efi的姿势(重写版）<br>insanelymac.com<br>tonymacx86.com<br>远景论坛<br>applelife.ru<br>olarila.com</p>
+<li><pre><code>       If (_OSI (&quot;Darwin&quot;))</code></pre></li>
+<li><pre><code>       {
+            Notify(\_SB.PCI0.LPCB.KBD, 0x0406)</code></pre></li>
+<li><pre><code>       }
+  }
 
+  Method (_Q15, 0, NotSerialized)//down
+  {</code></pre></li>
+<li><pre><code>       If (_OSI (&quot;Darwin&quot;))</code></pre></li>
+<li><pre><code>       {
+            Notify(\_SB.PCI0.LPCB.KBD, 0x0405)</code></pre></li>
+<li><pre><code>       }
+  }</code></pre>
+} } 由于这里不是以 Return 结束的，所以我们要为 If 加上 Else：</li>
+</ul>
+<p>DefinitionBlock(““,”SSDT”, 2, “hack”, “BrightFN”, 0) {
+External(_SB.PCI0.LPCB.KBD, DeviceObj) External(_SB.PCI0.LPCB.EC,
+DeviceObj)</p>
+<pre><code>Scope (_SB.PCI0.LPCB.EC)
+{
+    Method (_Q14, 0, NotSerialized)//up
+    {</code></pre>
+<ul>
+<li><pre><code>       If (_OSI (&quot;Darwin&quot;))</code></pre></li>
+<li><pre><code>       {
+            Notify(\_SB.PCI0.LPCB.KBD, 0x0406)</code></pre></li>
+<li><pre><code>       } Else {</code></pre></li>
+<li></li>
+<li><pre><code>       }
+  }
+
+  Method (_Q15, 0, NotSerialized)//down
+  {</code></pre></li>
+<li><pre><code>       If (_OSI (&quot;Darwin&quot;))</code></pre></li>
+<li><pre><code>       {
+            Notify(\_SB.PCI0.LPCB.KBD, 0x0405)</code></pre></li>
+<li><pre><code>       } Else {</code></pre></li>
+<li></li>
+<li><pre><code>       }
+  }</code></pre>
+} } 在 Else 区域中，调用原始 DSDT 中原始的 _Q14、_Q15
+函数、也就是现在已经被重命名为 XQ14 和 XQ15
+的函数。当然，别忘了在文件头部添加对 XQ14 和 XQ15
+的函数的外部引用：</li>
+</ul>
+<p>DefinitionBlock(““,”SSDT”, 2, “hack”, “BrightFN”, 0) {
+External(_SB.PCI0.LPCB.KBD, DeviceObj) External(_SB.PCI0.LPCB.EC,
+DeviceObj) + External(_SB.PCI0.LPCB.EC.XQ14, MethodObj) +
+External(_SB.PCI0.LPCB.EC.XQ15, MethodObj)</p>
+<pre><code>Scope (_SB.PCI0.LPCB.EC)
+{
+    Method (_Q14, 0, NotSerialized)//up
+    {</code></pre>
+<ul>
+<li><pre><code>       If (_OSI (&quot;Darwin&quot;))</code></pre></li>
+<li><pre><code>       {
+            Notify(\_SB.PCI0.LPCB.KBD, 0x0406)</code></pre></li>
+<li><pre><code>       } Else {</code></pre></li>
+<li><pre><code>             \_SB.PCI0.LPCB.EC.XQ14()</code></pre></li>
+<li><pre><code>       }
+  }
+
+  Method (_Q15, 0, NotSerialized)//down
+  {</code></pre></li>
+<li><pre><code>       If (_OSI (&quot;Darwin&quot;))</code></pre></li>
+<li><pre><code>       {
+            Notify(\_SB.PCI0.LPCB.KBD, 0x0405)</code></pre></li>
+<li><pre><code>       } Else {</code></pre></li>
+<li><pre><code>             \_SB.PCI0.LPCB.EC.XQ15()</code></pre></li>
+<li><pre><code>       }
+  }</code></pre>
+} } 这样就大功告成了。</li>
+</ul>
+<p>是不是有些头昏脑涨？实际上，和 Clover 现成的 SSDT
+补丁库一样，OpenCore 也有现成的 SSDT 补丁库
+OC-little，由资深黑苹果爱好者们维护。我也在其中贡献了一些补丁（如 PTWSAK
+关机变重启修复）和说明。 你在 Clover 中使用的 SSDT
+补丁，大部分都有对应的 OpenCore 下可用的 SSDT
+替代，免去了你手动修改的痛苦。而且，你还可能通过 OC-little
+库里的其他补丁修复了一些你之前的 SSDT 补丁没有解决的问题。</p>
+<p>当然，对于一些 OC-little
+中没有等价替代的补丁，你仍然需要手动修改、添加操作系统判断；对于直接修补的
+DSDT，你也只能自己在 Method 中添加对应的判断。</p>
+<p>如果你完成了对 SSDT、DSDT 的修改，现在备份你的 EFI、然后修改后的
+SSDT、DSDT 放到 EFI/Clover/ACPI/patched 之中，然后以 -v
+重启，看看能不能正常开机。如果可以正常开机，登录以后打开终端执行以下命令、查看日志中是否包括
+ACPI Error：</p>
+<p>$ log show –last boot | grep -Ei “ACPI” 如果正常开机，没有 ACPI
+Error，那么恭喜你，你已经迈出了向 OpenCore
+迁移的第一步，而且此时你依然还在继续使用 Clover
+，你的黑苹果没有收到任何影响。</p>
+<p>减少不必要的 DSDT 重命名 acidanthera 团队认为，应该尽可能减少 DSDT
+重命名、减少改动以避免对设备硬件造成伤害。</p>
+<p>以下是一些不再需要的重命名，你可以参考这个表自己精简 DSDT
+重命名、使用 SSDT 代替：</p>
+<p>EHC1 to EH01 和 EHC2 to EH02 ：建议由 OpenCore 官方的 SSDT-EHCx_OFF
+关闭 EHC 控制器。Skylake 这类六代以上已经没有 EHC
+控制器了，可以直接删除。 SAT0 to SATA 和 SAT1 to SATA ：实质上完全没用。
+HECI to IMEI、HEC1 to IMEI、MEI to IMEI 和 IDER to MEID：WhateverGreen
+能够处理这个问题。 GFX0 to IGPU、PEG0 to GFX0、PEGP to GFX0 和 SL01 to
+PEGP：WhateverGreen 能够处理这个问题。 EC0 to EC、H_EC to EC、ECDV to EC
+和 PGEC to EC ：虽然 macOS 的 USB 电源管理需要名称为 EC
+的控制器，但是你完全可以在 OC-little 中找到「仿冒 EC」的相关 SSDT 补丁。
+HDAS to HDEF、CAVS to HDEF 和 AZAL to HDEF ：AppleALC
+能够处理这个问题，除非你在用 VoodooHDA 万能声卡。 STAS to Noop ：建议由
+OC-little 中的 SSDT-AWAC 相关补丁替代。 经 Bat.bat
+大佬指出，由于新的时钟设备 AWAC 的普及，用 Noop
+会导致同时启用两个时钟设备，在 macOS 下只有一个能正常工作、但是在
+Windows 下面暴露两个设备无疑对系统有害，同时也严重违反 ACPI 规范。STAS
+这个变量的意义使 AWAC 和 RTC 互锁以避免这种危害。因此，使用 SSDT-AWAC
+是更理想的办法。</p>
+<p>PXSX to ANS1 和 PXSX to ANS2 ：建议用 NVMeFix 这个 kext 修复 NVMe SSD
+的电源管理。 LPC0 to LPCB ：如果你要添加 SMBUS 支持，OC-little 中分别有
+SBUS 的 SSDT 注入补丁和 MCHC 设备补丁。 顺便提醒一下，使用 OC-little
+的补丁的时候，需要注意设备的原始 DSDT 中的 LPC 总线名称，并且要自己修改
+SSDT 以使 LPC 总线匹配。</p>
+<p>PC00 to PCIO、FPU to MATH、TMR to TIMR、GBE1 to ETH0 和 PIC to IPIC
+：这些重命名也是实质上是完全没用的。 _OSI to XOSI 和 OSID to XSID
+：除非你的某些硬件设备只能在 Windows 下工作（比如 I2C 触摸板只能在
+Windows 下使用，再比如 ThinkPad 对 FreeBSD
+的特殊优化），否则完全没有必要使用 SSDT-XOSI
+补丁来伪装操作系统。而且大部分情况下，直接定制 SSDT
+也可以解除某些硬件的操作系统限制。 关于「定制 SSDT 以解除限制」，Bat.bat
+大佬做了一些说明：一种方法是通过「预置变量法」（详见 OC-little
+的「总述」章节）禁用原始设备的函数如
+_STA，另一种方法是通过重命名实现对相关 _STA 的函数的精确重命名，然后通过
+SSDT 添加新的 _STA 函数（SSDT 中可以添加 OSI 操作系统判断函数）。</p>
+<p>_DSM to XDSM ：首先遍历一下你的 SSDT 补丁中没有依赖 _DSM
+的，如果没有，这个重命名也应该删除，因为这个重命名涉及的范围实在太大了、太过于危险。
+我的建议是，尽可能只添加和 Method 名称有关的重命名（如 GPRW to
+XPRW、_Q14 to XQ14），而且随后要通过 SSDT 确保在非 macOS
+操作系统下要调用并返回原始函数，确保在非 macOS 操作系统下的原始 DSDT
+行为不会被改变。如果万不得已要添加其它重命名（如通过重命名禁用某些设备），那么就要权衡这一重命名的后果。</p>
+<p>如果你完成了精简 DSDT 重命名并保存了
+config，接下来的操作还是一样的，备份原始 EFI、然后以 -v
+重启，看看能不能正常开机。如果可以正常开机，登录以后打开终端执行以下命令、查看日志中是否包括
+ACPI Error：</p>
+<p>$ log show –last boot | grep -Ei “ACPI”
+完成这一步，你依然没有必要离开 Clover
+。我说过了，「渐进式」地迁移，嗯？</p>
+<p>摆脱对 Clover ACPI Quirks 的依赖 Clover
+实在是非常方便。一个开关，关机变重启就修复了；三个开关，HPET、IRQ、TIMR
+就修复了；等等等等。但是 OpenCore 是没有内置这些 ACPI 修复的，所以在
+Clover 下用开关实现的 ACPI 修复现在都必须用 SSDT
+实现。所幸的是，我们依然可以从 OC-little
+里找到绝大部分我们需要的补丁。</p>
+<p>FixIPIC：参考 OC-little 的「声卡 IRQ 补丁」章节 FixSBUS：参考
+OC-little 的「注入 SBUS 设备」 FixShutdown：参考 OC-little 的「PTSWAK
+综合补丁章节」，需要添加其中的 EXT1 插件补丁（该补丁由我贡献）
+FixDisplay：使用 WhateverGreen 和定制缓冲帧补丁解决 AddMCHC：参考
+OC-little 的「注入缺失的 MCHC」章节 FixHDA：使用 AppleALC 即可
+FixHPET：参考 OC-little 的「声卡 IRQ 补丁」章节
+FixSATA：这个先不管它，OpenCore 中有个 ExternalDiskIcons 的
+Quirk，也可以使用 innie.kext 解决。 FixADP1：使用 DSDT 重命名 AC0_ to
+ADP1，可能还要额外注入 Name (_PRW, Package (0x02) {0x1C,0x03})。
+FixRTC：参考 OC-little 的「声卡 IRQ 补丁」章节 FixTIMR：参考 OC-little
+的「声卡 IRQ 补丁」章节 AddPNLF：参考 OC-little 的「注入 PNLF」章节
+AddIMEI：使用 WhateverGreen 即可 FixIntelGfx：使用 WhateverGreen 即可
+AddHDMI：使用 WhateverGreen 即可 除了这些开关以外，Clover 还有一些其它的
+ACPI 设定，也有与之对应的替代。</p>
+<p>DisableASPM：没有很好的代替方法，可以在设备属性（DeviceProperties）中分别添加相关设备的
+PCI 总线位置并注入属性 pci-aspm-default | DATA | &lt;00&gt;。
+PluginType：参考 OC-little 的「注入 X86」章节 Generate P States 和
+Generate C States：这些是六代以前 CPU 才需要的设置，可以用 ssdtPRGen.sh
+生成对应的 SSDT。 当然之后的事情还是一样的，以 -v
+重启，正常开机后打开终端查看日志中是否包括 ACPI Error：</p>
+<p>$ log show –last boot | grep -Ei “ACPI” 当你把所有 Clover 的开关都用
+SSDT 代替以后，你离迁移到 OpenCore 就越来越近了。</p>
+<p>更新设备属性 使用缓冲帧补丁驱动 Intel 核显 如果你还在用 Clover 的
+InjectIntel 的方式来驱动 Intel 核显的话，是时候更换到 WhateverGreen
+和缓冲帧补丁的方式了。</p>
+<p>建议参考以下几篇文章：</p>
+<p>使用 WhateverGreen 驱动 Intel 核显 | 醉渔小站 Hackintool(原Intel
+FB-Patcher)使用教程及插入姿势 | 黑果小兵的部落阁 Intel 核显驱动常见问题
+| WhateverGreen （务必看英文版，中文翻译严重过时） 新的声卡 layout-id
+注入方式 大部分黑苹果的声卡教程都已经推荐此处留空、直接在设备属性中注入
+layout-id 了，不过我还是再冗笔一下。</p>
+<p>下载 acidanthera 开发的工具 gfxutils，使用下述命令找出声卡的 PCI
+总线位置：</p>
+<p>$ path/to/gfxutils -f HDEF $ path/to/gfxutils -f HDAS $
+path/to/gfxutils -f HDAU 然后在设备属性中添加 PCI 总线位置、注入
+layout-id 属性。</p>
+<p>至于 AFGLowPowerState，需要额外为声卡设备注入 AFGLowPowerState
+属性，值为 DATA | &lt;01000000&gt;、至于 ResetHDA，推荐安装
+JackFix。</p>
+<p>开始组织 OpenCore 目录
+终于是时候了，所有的准备工作都做完了！你可以抽出一天（最好占卜一下是否是吉日），沐浴更衣，然后开始组织你的
+OpenCore 目录。</p>
+<p>下载 OpenCore 所需文件 OpenCorePkg - OpenCore 本体、一些 SSDT
+补丁、目录结构 MacInfoPkg - 导出你当前的三码、以及生成新的三码
+AppleSupportPkg - 包括三个 EFI 驱动，ApfsDriverLoader、VBoxHfs、AudioDxe
+OcBinaryData - 包含两个闭源驱动 HfsPlus.efi 和 ExFatDxe.efi，以及
+OpenCore 官方主题的图标文件。 非常推荐安装 OpenCore 官方做的主题，和真
+Mac 的 BootPicker
+一模一样（除了没有网络图标）。不过那可能是另一篇文章的主题了。
+决定你使用的配置文件编辑器 ProperTree：一个 Python 编写的 plist
+编辑器，专门优化了 OpenCore 和 Clover 配置文件编写。
+Xcode：非常不推荐，Xcode 11 不仅花里胡哨、而且处理 plist data
+和大整数方面存在问题。 简单来说，Apple 没有再开放旧版的 Xcode 10
+下载、而且 Apple 的 CDN 还有防盗链。因此如果我要写一篇从 Apple 官方下载
+Xcode 10 的教程，那么会比你现在看的这篇的「从 Clover 到
+OpenCore」要长得多。 如果你和我一样成功下载了 Xcode 10 或者就没有升级到
+Xcode 11：我刚才什么都没写，你什么都没看见。 OpenCore
+Configurator：Clover Configurator 作者的新作品。很适合新手使用。
+OpenCore 的配置文件变更非常频繁，因此只应该用 最新版的 OpenCore
+Configurator 搭配 最新的正式版的
+OpenCore，否则配置文件格式错误将会导致无法引导。 OpenCore Configurator
+有不少低级 Bug（后来更新时都修复了），比如之前有一个版本，在应对
+VoodooPS2Controller 和 VooooI2C 这种嵌套 kext 时，会只添加内部 kext 的
+dsYM 签名文件、却不添加内部 kext 本体。 反正就是，使用后果自负。
+生成目录结构 解压下载的 OpenCore 并解压，将其中的 EFI 目录
+复制出来到别处。</p>
+<p>直到配置好以后，再将这个目录合并进硬盘上的 EFI 分区。</p>
+<p>将 Docs 目录下的 Sample.list 复制到 EFI/OC 目录下、并重命名为
+config.plist。</p>
+<p>如果你下载的是 OpenCore 0.5.7 版本，还需要额外将 Reources 目录复制到
+EFI/OC 目录之中。</p>
+<p>解压下载的 AppleSupportPkg，将其中的 Drivers 目录和 Tools
+目录中的文件复制到 EFI/OC/Drivers 目录和 EFI/OC/Tools 目录中。</p>
+<p>解压下载的 OcBinaryData，将其中 Drivers 目录复制到 EFI/OC/Drivers
+目录中。</p>
+<p>删除不需要的文件 删除 Drivers 目录中的这些文件：</p>
+<p>ExFatDxe 和 ExFatDxeLegacy：除非你的 EFI 分区或者某个系统分区是 ExFAT
+分区格式的，否则不需要保留。 HfsPlus、HfsPlusLegacy 和
+VBoxHfs：三者只要留其中一个即可。一般推荐用 HfsPlus，比 VBoxHfs
+速度快三倍。在四代以前机型上应该用 HfsPlusLegcay 而不是 HfsPlus。
+AppleUsbKbDxe 或
+OpenUsbKbDxe：这是为三代以前机型使用的，现代的机器应该使用 OpenCore 中的
+KeySupport 这个 Quirk。 NvmExpressDxe：这是为四代以前机型使用的 NVMe
+硬盘加载驱动，现代的机器已经不需要了。 XhciDxe：为二代以前的主板提供
+XHCI 支持的，现代的机器已经不需要了。 HiiDatabase：为四代以前的设备提供
+UEFI 界面字体渲染支持的，现代的机器已经不需要了。 删除 Tools
+目录中的这些文件：</p>
+<p>BootKicker：调用 Mac 内置的引导界面，是用于给白苹果安装 OpenCore
+时用的，黑苹果用不上。 现在，你的 OpenCore EFI
+目录的结构应该是这样的：</p>
+<p>EFI ├── BOOT │ └── BOOTx64.efi └── OC ├── ACPI ├── Drivers │ ├──
+ApfsDriverLoader.efi │ ├── AudioDxe.efi │ ├── HfsPlus.efi │ ├──
+OpenCanopy.efi │ └── OpenRuntime.efi ├── Kexts ├── OpenCore.efi ├──
+Resources └── Tools ├── ChipTune.efi ├── …… └── VerifyMsrE2.efi
+现在，你可以把你的 SSDT、DSDT 从 Clover 里的 Clover/ACPI/Patched
+复制出来、粘贴进 EFI/OC/ACPI 目录中；将 Kext 从 Clover/Kexts/*/
+中复制出来粘贴进 EFI/OC/Kexts 目录中。</p>
+<p>开始配置 OpenCore 这里我就不再赘述 OpenCore
+的配置教程了。这里推荐几个写的不错的教程和足够有用的参考资料。</p>
+<p>OpenCore 参考文档。当你解压下载的 OpenCore 时，Docs/Configuration.pdf
+文件就是 OpenCore 的官方文档。这是最权威的 OpenCore 参考资料、没有之一。
+OpenCore 简体中文参考手册。OpenCore
+参考手册的翻译，由我和一些黑苹果爱好者们共同在维护。
+上面两份参考资料资料适合你在配置时不知道某个选项的具体作用、具体副作用时参考用，但是不适合直接对着它们配置
+config.plist。 如果想要快速上手 OpenCore 配置，应该参考下面的教程：</p>
+<p>OpenCore Vanilla Guide。OpenCore
+官方认可写得较好的新手教程。这篇教程受众是第一次接触黑苹果就想用
+OpenCore 的人，因此内容写得非常浅显 精解 OpenCore |
+黑果小兵的部落阁。国内最早的 OpenCore 介绍文档之一，提供了不少配置思路和
+Quirks 的推荐配置。 使用 OpenCore 引导黑苹果 | XJN’s Blog。比较详细的
+OpenCore 配置介绍，但是这篇文章的排版我实在是欣赏不来。 OpenCore
+引导迁移折腾记录 | 宇宙よりも遠い場所。内容详细的 OpenCore
+配置介绍，提供了不少 Quirks 的推荐配置。 Clover 中的部分配置，如 DSDT
+重命名，由于在之前已经精简，因此可以将 Find 和 Replace
+的十六进制字符串逐对复制到 OpenCore 的配置文件中。</p>
+<p>Clover 中的设置在 OpenCore 的等效配置
+现在你开始跟着我推荐的教程和参考资料开始配置 OpenCore
+了。接下来我会写一些 Clover 中一些选项在 OpenCore 的对应等效配置，在配置
+OpenCore 时别忘了跟着看看。</p>
+<p>Boot 的相关设置 引导参数：OpenCore 中 NVRAM -&gt; Add -&gt;
+7C436110-AB2A-4BBB-A880-FE41995C9F82 -&gt; boot-args
+NeverHibernate：Misc -&gt; Boot -&gt; HibernateMode -&gt; None
+其实不再建议禁用休眠，由于 OpenCore
+的行为和白苹果更加接近，以至于已经可以实现 macOS 的完美休眠。 Default
+Boot Volume：OpenCore 中 Misc - Security - AllowSetDefaults - true
+然后在 OpenCore 的引导菜单处使用 Ctrl + Enter 按键进行选择
+你也可以直接用「系统偏好设置」中的「启动磁盘」设置
+DefaultBackgroundColor：OpenCore 中的 NVRAM -&gt; Add -&gt;
+4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14-&gt; DefaultBackgroundColor
+，需要自己将 RGB 转换为 HEX。 EFILoginHiDPI：OpenCore 中 NVRAM -&gt; Add
+-&gt; 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 -&gt; EFILoginHiDPI | Data |
+&lt;&gt; 0 -&gt; &lt;00000000&gt; 1 -&gt; &lt;01000000&gt;
+flagstate：OpenCore 中 NVRAM -&gt; Add -&gt;
+4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 -&gt; flagstate | Data | &lt;&gt; 0
+-&gt; &lt;00000000 00000000 00000000 00000000 00000000 00000000 00000000
+00000000&gt; 注意自行判断 NVRAM 键值对位置 UIScale：NVRAM -&gt; Add
+-&gt; 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 -&gt; UIScale | Data |
+&lt;&gt; 1 -&gt; &lt;01&gt; 2 -&gt; Data | &lt;02&gt; CPU 相关配置
+Type：在 OpenCore 中有对应的 Platforminfo -&gt; SMBIOS -&gt;
+ProcessorType 可以设置处理器类型 在 这个文件 查看可以选用的值
+HWPEnable：如果你真的要依赖 MSR 0x770 （注意这里说的不是原生电源管理 MSR
+0xe2）的 HWP 电源管理，建议安装 headkaze 开发的
+HWPEnable.kext。HackinTool 也是他开发的。 QEMU：OpenCore
+已经完整支持虚拟机，因此 OpenCore 中不包含这一选项。
+TurboDisable：建议用 CPUFriend 或者 ssdtPRGen.sh 来修复电源管理。
+设备属性相关设置 USB FixOwnership：OpenCore 中 UEFI -&gt; Quirk -&gt;
+ReleaseUsbOwnership ClockID：需要自己注入对应的设备属性（Device
+Properties），属性为 AAPL,clock-id
+HighCurrent：需要自己注入对应的设备属性（Device Properties），属性为
+AAPL,HighCurrent 对于 macOS 10.11 来说 HighCurrent
+已经没啥用了。对于更新版的 macOS，推荐用 OC-little 中的 SSDT-USBX 补丁。
+FakeID 同样使用 gfxutils 工具找到 PCI
+总线位置，然后分别注入相关属性：</p>
+<p>USB device-id device_type device_type IMEI device-id vendor-id WIFI
+name compatible LAN device-id compatible vendor-id XHCI device-id
+device_type: UHCI device_type: OHCI device_type: EHCI device-id
+AAPL,current-available AAPL,current-extra AAPL,current-available
+AAPL,current-extra AAPL,current-in-sleep built-in device_type: XHCI
+device-id AAPL,current-available AAPL,current-extra
+AAPL,current-available AAPL,current-in-sleep built-in Clover
+中相关的图形设置 和前文一样，这些在 Clover
+中设置的属性都需要改为注入对应的设备属性即可。</p>
+<p>InjectAti: DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; deviceID
+DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; Connectors InjectNvidia:
+DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; DeviceID
+DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; Family FakeAti:
+DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; device-id
+DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; ATY,DeviceID
+DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt; <span class="citation"
+data-cites="0">@0</span>,compatible DeviceProperties -&gt; Add -&gt;
+PCIRoot… -&gt; vendor-id DeviceProperties -&gt; Add -&gt; PCIRoot… -&gt;
+ATY,VendorID BootDisplay: DeviceProperties -&gt; Add -&gt; PCIRoot…
+-&gt; <span class="citation" data-cites="0">@0</span>,AAPL,boot-display
+Intel 核显推荐使用 WhateverGreen 和缓冲帧补丁驱动。</p>
+<p>一般的，在注入仿造显卡或仿造 VBIOS 的时候，更推荐使用 SSDT 搭配
+WhateverGreen 的方式。至于 EDID 注入，WhateverGreen 的文档中有
+详细介绍。</p>
+<p>内核扩展驱动（Kext）相关 KernelPm 和 AppleIntelCPUPM：对应 OpenCore
+中 Kernel -&gt; Quirks -&gt; AppleXcpmCfgLock -&gt; YES 和 Kernel -&gt;
+Quirks -&gt; AppleCpuPmCfgLock -&gt; YES。 DellSMBIOSPatch ：在 OpenCore
+中对应了两个 Quirk： Kernel -&gt; Quirks -&gt; CustomSMBIOSGuid -&gt;
+YES PlatformInfo -&gt; UpdateSMBIOSMode -&gt; Custom Kernel LAPIC 和
+KernelXCPM：分别对应 OpenCore 中的 Kernel -&gt; Quirks -&gt;
+LapicKernelPanic -&gt; YES 和 Kernel -&gt; Quirks -&gt;
+AppleXcpmExtraMsrs -&gt; YES AppleRTC： Comment：Disable RTC checksum
+update on poweroff Enabled：YES Count：1
+Base：__ZN8AppleRTC14updateChecksumEv
+Identifier：com.apple.driver.AppleRTC Limit：0 Find： Replace：c3
+FakeCPUID：OpenCore 提供了专门的 Emulate 功能。 除此以外，一些常用的
+Kext Patch 在 OpenCore 中也有了对应了 Quirk。</p>
+<p>解除 USB 15 端口限制，以前根据不同的系统需要打不同的 Kext
+Patch，现在只需要 OpenCore 一个 Quirk：Kernel -&gt; Quirks -&gt;
+XhciPortLimit -&gt; YES 内置硬盘变外置硬盘，也只需要一个 Quirk：kernel
+-&gt; Quirks -&gt; ExternalDiskIcons -&gt; YES 和前面的 FixSATA
+不同，FixSATA 顾名思义只修复 SATA 硬盘，而 OpenCore 这个 Quirks
+会修复所有的硬盘。 为 SATA SSD 提供 TRIM 现在也只需要启用一个
+Quirk：Kernel -&gt; Quirks -&gt; ThirdPartyDrive SMBIOS
+机型信息和系统参数 Product Name：PlatformInfo -&gt; Generic -&gt;
+SystemProductName Serial Number：PlatformInfo –&gt; Generic -&gt;
+SystemSerialNumber Board Serial Number：PlatformInfo -&gt; Generic -&gt;
+MLB SmUUID：PlatformInfo -&gt; Generic -&gt; SystemUUID Slots AAPL
+Injection：需要注入到设备属性中 DeviceProperties -&gt; Add -&gt;
+PCIRoot… -&gt; APPL,slot-name | string | Add slot CustomUUID：就连
+Clover 都不推荐配置这一项，OpenCore 直接就不提供硬件 UUID 配置功能
+InjectSystemID：兼容变色龙的历史遗留配置，OpenCore 也不再提供
+BacklightLevel：需要注入到 NVRAM 中 NVRAM -&gt; Add -&gt;
+7C436110-AB2A-4BBB-A880-FE41995C9F82 -&gt; backlight-level | Data |
+<Insert value> NvidiaWeb：需要注入到 NVRAM 中 NVRAM -&gt; Add -&gt;
+7C436110-AB2A-4BBB-A880-FE41995C9F82 -&gt; nvda_drv: &lt;31&gt; 配置好
+OpenCore 以后，可以将 OpenCore 复制到 U
+盘或者硬盘中。需要注意的是，EFI/BOOT/BOOTx64.efi
+需要直接替换。在添加引导项时，OpenCore 必须 从 EFI/BOOT/BOOTx64.efi
+启动而不是从 EFI/OC/OpenCore.efi 启动。如果启动项中添加的不是
+EFI/BOOT/BOOTx64.efi，那么有很大的概率你会遇到各种奇怪的问题。</p>
+<p>清理 Clover 残余 重启到 OpenCore 引导之前，务必清理掉 Clover
+的残留文件：</p>
+<p>sudo rm -rf /Library/PreferencePanes/Clover.prefPane # 删除
+<code>Clover</code> 位于系统偏好设置中的面板 # 删除 <code>Clover</code>
+的自动脚本 rm -rf “/etc/rc.clover.lib” rm -rf
+“/etc/rc.boot.d/10.save_and_rotate_boot_log.local” rm -rf
+“/etc/rc.boot.d/20.mount_ESP.local” rm -rf
+“/etc/rc.boot.d/70.disable_sleep_proxy_client.local.disabled” rm -rf
+“/etc/rc.boot.d/80.save_nvram_plist.local” rm -rf
+“/etc/rc.shutdown.local” rm -rf “/etc/rc.boot.d” rm -rf
+“/etc/rc.shutdown.d” # 删除 <code>Clover</code> 的守护进程 launchctl
+unload ‘/Library/LaunchDaemons/com.slice.CloverDaemonNew.plist’ rm -rf
+‘/Library/LaunchDaemons/com.slice.CloverDaemonNew.plist’ rm -rf
+‘/Library/Application Support/Clover/CloverDaemonNew’ rm -rf
+‘/Library/Application Support/Clover/CloverLogOut’ rm -rf
+‘/Library/Application Support/Clover/CloverWrapper.sh’
+除此以外，还要删除 EFI 分区中的 nvram.plist 文件。</p>
+<p>在 OpenCore 中还需要重置 NVRAM。可以在 OpenCore
+引导菜单中，按下空格键显示隐藏条目，最后一个条目就是 OpenCore 的重置
+NVRAM 功能。</p>
+<p>原文链接： https://blog.skk.moe/post/from-clover-to-opencore/</p>
+<p>感谢名单 Apple 的 macOS RehabMan维护的项目：OS-X-Clover-Laptop-Config
+Laptop-DSDT-Patch OS-X-USB-Inject-All等 Acidanthera
+维护的项目：OpenCorePkg lilu AirportBrcmFixup WhateverGreen VirtualSMC
+AppleALC BrcmPatchRAM MaciASL 等 headkaze 提供的工具：hackintool
+PinConfigurator BrcmPatchRAM
+CloverHackyColor维护的项目：CloverBootloader CloverThemes
+宪武整理的：P-little OC-little chris1111维护的项目：VoodooHDA Wireless
+USB Adapter Clover zxystd开发的itlwm IntelBluetoothFirmware
+lihaoyun6提供的工具：CPU-S macOS-Displays-icon SidecarPatcher
+sukka更新维护的从 Clover 到 OpenCore —— Clover 迁移 OpenCore 指南
+xzhih提供的工具：one-key-hidpi Bat.bat更新维护的精解OpenCore shuiyunxc
+更新维护的OpenCore配置错误、故障与解决办法 athlonreg更新维护的OpenCore
+0.5+ 部件补丁 Common-patches-for-hackintosh github.com 码云 gitee.io
+扣钉 coding.net 参考及引用： https://deviwiki.com/wiki/Dell
+https://deviwiki.com/wiki/Dell_Wireless_1820A_(DW1820A) Hervé
+更新的Broadcom
+4350:https://osxlatitude.com/forums/topic/12169-bcm4350-cards-registry-of-cardslaptops-interop/
+Hervé
+更新的DW1820A支持机型列表:https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/
+nickhx
+提供的蓝牙驱动：https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/?do=findComment&amp;comment=92833
+xjn819： 使用OpenCore引导黑苹果
+300系列主板正确使用AptioMemoryFix.efi的姿势(重写版） insanelymac.com
+tonymacx86.com 远景论坛 applelife.ru olarila.com</p>
+
+      </div>
     </div>
     
+  </article>
+  <div class="post__foot">
     
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
-    </div>
-    
-    
-    
-    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="../images/avatar.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="../z.jpg" />
+  </div>
+  <div class="like-text">“给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
 </div>
 
-                <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2020 - 2023 Crafting
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;闫天阳
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="../post/%E8%A7%A3%E5%86%B3VMware%20Unlocker%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BDdarwin.iso%E7%9A%84%E9%97%AE%E9%A2%98.html">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>解决VMware Unlocker无法下载darwin.iso的问题</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="../post/%E2%8A%99o%E2%8A%99-%E2%80%A6.html">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      (⊙o⊙)…
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="../tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" class="post-tag">#黑苹果</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="popular-posts"><div class="popular-posts-item"><div class="popular-posts-title"><a href="\post\解决VMware Unlocker无法下载darwin.iso的问题.html" title="解决VMware Unlocker无法下载darwin.iso的问题" rel="bookmark">解决VMware Unlocker无法下载darwin.iso的问题</a></div></div><div class="popular-posts-item"><div class="popular-posts-title"><a href="\post\bcd命令的用法.html" title="bcd命令的用法" rel="bookmark">bcd命令的用法</a></div></div><div class="popular-posts-item"><div class="popular-posts-title"><a href="\post\⊙o⊙-….html" title="(⊙o⊙)…" rel="bookmark">(⊙o⊙)…</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
     </div>
-</footer>
+    <div class="foot">
+  <div class="foot-inner">
+    <div class="foot__head">
+      
+        
+          <div class="foot-line">
+            <div class="matts">海</div><div class="matts">内</div><div class="matts">存</div><div class="matts">知</div><div class="matts">己</div>
+          </div>
+        
+      
+        
+          <div class="foot-line">
+            <div class="matts">天</div><div class="matts">涯</div><div class="matts">若</div><div class="matts">比</div><div class="matts">邻</div>
+          </div>
+        
+      
+    </div>
+    <div class="foot__body">
+      
+        <div class="foot-item">
+          <div class="foot-item__head">朋友</div>
+          <div class="foot-item__body">
+            
+            
 
-            </div>
-            
-            <transition name="fade">
-                <div id="preview" ref="preview" v-show="previewShow">
-                    <img id="preview-content" ref="previewContent" />
-                </div>
-            </transition>
-            
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/icon/icon-link.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://tianyang.eu.org">Backup Site</a>
+          </div>
+        
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/icon/icon-link+.svg" />
+            <a class="foot-link" href="mailto:yty_01202@163.com?subject=申请https://www.tianyang.art的友链">交换友链</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+          </div>
         </div>
-        <script src="/js/main.js"></script>
+      
+      
+        <div class="foot-item">
+          <div class="foot-item__head">账号</div>
+          <div class="foot-item__body">
+            
+
+
+  
+  
+    <div class="foot-link-group">
+      
         
         
-<script
-    src="https://giscus.app/client.js"
-    data-repo="yty2006/yty2006.github.io"
-    data-repo-id="MDEwOlJlcG9zaXRvcnkyOTMyMzIxMjk="
-    data-category="Announcements"
-    data-category-id="DIC_kwDOEXpeAc4CZNO3"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin
-    async
-></script>
-
-
-
-
-
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/logo-github.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/yty2006">Github</a>
+          </div>
         
-        <script src="/click.js" type="module"></script>
-    </body>
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/logo-zh.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/yty06">Zhihu</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+          </div>
+        </div>
+      
+      <div class="foot-item">
+        <div class="foot-item__head">联系</div>
+        <div class="foot-item__body">
+          
+
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="../images/icon/icon-email.svg" />
+            <a class="foot-link" href="mailto:yty_061202@163.com">yty_061202@163.com</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+        </div>
+        <div id="sitetime">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+    <div class="copyright">
+      ©2025 &nbsp; <a href="https://www.tianyang.art">Tianyang's Blog</a>
+    </div>
+      </div>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* 
+    Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+    var t1 = Date.UTC(2025,09,23,15,00,00); //北京时间2018-2-13 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML="    本站居然运行了"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }
+  siteTime();
+</script>
+    </div>
+  </div>
+</div>
+
+
+    
+    
+      <script src="../js/search.js"></script>
+      <script>
+        searchInitialize("../search.json")
+      </script>
+    
+    <script src="../js/copy-code.js"></script>
+    
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  const param = JSON.parse('{"enable":true,"owner":null,"admin":null,"repo":null,"clientID":null,"clientSecret":null,"distractionFreeMode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN"}')
+  let title = location.pathname.substr(0, 50); 
+  param.id = title
+  const gitalk = new Gitalk(param)
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+  </body>
 </html>

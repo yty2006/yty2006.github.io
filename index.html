@@ -1,537 +1,654 @@
-
 <!DOCTYPE html>
-<html lang="cn">
-    <head>
-        <meta charset="utf-8" />
-        <title>Crafting</title>
-        <meta name="author" content="闫天阳" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="天阳" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/images/avatar.jpg" />
-        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf8"/>
+    
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+    <title>
+      
+        Tianyang's Site
+      
+    </title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="天阳"/>
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/avatar.jpg"/>
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/avatar.jpg"/>
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/avatar.jpg"/>
+    
+    
+      <link rel="mask-icon"
+            href="/images/avatar.jpg"
+            color=""/>
+    
+    
+    
+      <style>
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+@font-face {
+  font-family: sourceHanSerif;
+  src: url(/font/normal.ttf);
+  font-weight: normal;
+}
 
+@font-face {
+  font-family: sourceHanSerif;
+  src: url(/font/bold.ttf);
+  font-weight: bold;
+}
 
-<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
-<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+@font-face {
+  font-family: AfacadFlux;
+  src: url(/font/AfacadFlux-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: AfacadFlux;
+  src: url(/font/AfacadFlux-SemiBold.ttf);
+  font-weight: bold;
+}
 
+:root {
+  --fancy-font: sourceHanSerif;
+}
 
+[lang=en] {
+  --fancy-font: AfacadFlux, sourceHanSerif;
+}
+</style>
 
-<script src="/js/lib/preview.js"></script>
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css'/>
+    
+    
+  
+  <script src="https://at.alicdn.com/t/c/font_5028991_m3mcn5o68j.js?spm=a313x.manage_type_myprojects.i1.10.ccc43a81u2YYH4&file=font_5028991_m3mcn5o68j.js"></script>
+  <script src="https://kit.fontawesome.com/a8bfe5a0a0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+        type="text/css"
+        href='/css/index.css' />
 
+  <meta name="generator" content="Hexo 8.0.0"></head>
+  <body>
+    
+      <div id="search-mask">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章内容">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#888" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
 
-
-
-
-<script src="/js/lib/home.js"></script>
-
-<link rel="stylesheet" href="/css/main.css" />
-
-    <meta name="generator" content="Hexo 6.3.0"></head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-                <div id="loading" v-show="loading">
-                    <div id="loading-circle">
-                        <h2>LOADING</h2>
-                        <p>加载过慢请开启缓存 浏览器默认开启</p>
-                        <img src="/images/loading.gif" />
-                    </div>
-                </div>
-            </transition>
-            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>CRAFTING</span>
+    
+    
+    <div class=head--sticky>
+      <div class="nav">
+        <a href='index.html' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/avatar.jpg"/>
         </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;CRAFTING</span>
+        <input id="navBtn" type="checkbox"/>
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="learning">学习</a>
+              
+                <a class="nav-menu-item" href="tech">技术</a>
+              
+                <a class="nav-menu-item" href="math">数学</a>
+              
+            
+            
+          </div>
         </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                    </div>
-                </a>
-                
-                <a href="/tags">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                    </div>
-                </a>
-                
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <div class="wall wall-index">
+    <div class="wall-main" id="wall-main">
+      <div class="wall-title">TIANYANG'S SITE</div>
+      <div class="wall-subtitle">simple&elegant</div>
+      <div class="wall-description">“简·雅”</div>
+    </div>
+    <div class="wall-bg">
+      <div class="wall-bg-index">
+        <div class="hello-world">
+          <div>> Hello world</div>
+          <div class="cursor"></div>
+        </div>
+        <div class="normal-eqt">
+          <img alt="normal" width="300px" height="" src="/images/normal.svg" />
+        </div>
+        <canvas width="400" height="400" id="heart-curve"></canvas>
+        <div class="motto">❤ math！</div>
+        <div class="poem">
+          
+            Just ❤ math!
+            <br />
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about">
+    <div class="about-photo"
+         style="background-image: url(/tianyang.png)"></div>
+    <div class="about-text">
+      <div class="about-title">
+        
+          <div class="matts">关</div><div class="matts">于</div>
+        
+      </div>
+      <div class="about-detail">
+        <div class="about-text-p">
+          
+            
+              Think like an artist,
+              <br />
+            
+          
+            
+              code like an artisan.
+              <br />
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="timeline">
+      <div class="timeline-head">
+        <div class="title">时间线</div>
+        <div class="radio-wrapper">
+          
+            <div class="radio">
+              <input id="radio-article"
+                     type="checkbox"
+                      />
+              <label class="radio-skin--article" for="radio-article"></label>
             </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
-
-            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                <div id="home-head">
-    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>Crafting</h1>
-                <h3>simple&amp;elegant</h3>
-                <h5></h5>
+          
+            <div class="radio">
+              <input id="radio-app"
+                     type="checkbox"
+                     checked />
+              <label class="radio-skin--app" for="radio-app"></label>
             </div>
-        </span>
-    </div>
-</div>
-<div id="home-posts-wrap" true ref="homePostsWrap">
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/post/%E5%AF%B9Algebra%E4%B8%80%E4%B9%A6%E7%9A%84%E7%90%86%E8%A7%A3.html">
-        <h2 class="post-title">对Algebra的理解</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/7/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h2 id="详见https-math-tianyang-eu-org"><a href="#详见https-math-tianyang-eu-org" class="headerlink" title="详见https://math.tianyang.eu.org"></a><strong>详见<a target="_blank" rel="noopener" href="https://math.tianyang.eu.org/">https://math.tianyang.eu.org</a></strong></h2><p><a target="_blank" rel="noopener" href="http://math.tianyang.life/#/?id=%E8%AF%B4%E6%98%8E"><strong>说明</strong></a></p>
-<blockquote>
-<p>关于本卷</p>
-</blockquote>
-<p>这里主要记录笔者关于B.L. 范德瓦尔登所著的《代数学I》与《代数学II》的思考和想象</p>
-<blockquote>
-<p>一些概念的关系图</p>
-</blockquote>
-<p><img src="/al0.jpg" alt="img"></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Math/" style="color: #03a9f4">Math</a>
-        </span>
-        
-    </div>
-    <a href="/post/%E5%AF%B9Algebra%E4%B8%80%E4%B9%A6%E7%9A%84%E7%90%86%E8%A7%A3.html" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/post/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html">
-        <h2 class="post-title">思维导图</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E7%89%A9%E7%90%86/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                物理
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/6/12
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p><img src="/%E6%9C%BA%E6%A2%B0%E8%83%BD%E5%AE%88%E6%81%92-non.png"></p>
-<hr>
-<p><a href="/%E6%9C%BA%E6%A2%B0%E8%83%BD%E5%AE%88%E6%81%92.png">图片</a></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E7%89%A9%E7%90%86/" style="color: #03a9f4">物理</a>
-        </span>
-        
-    </div>
-    <a href="/post/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.html" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/post/bcd%E5%91%BD%E4%BB%A4%E7%9A%84%E7%94%A8%E6%B3%95.html">
-        <h2 class="post-title">bcd命令的用法</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/Windows/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                Windows
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/4/29
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h2 id="什么是BCD"><a href="#什么是BCD" class="headerlink" title="什么是BCD"></a>什么是<strong>BCD</strong></h2><ul>
-<li><strong>BCD</strong>全称<strong>Boot Configuration Data</strong>，意思是<strong>启动配置数据</strong></li>
-</ul>
-<p><strong>BCD</strong>的作用</p>
-<ul>
-<li><p>里边包含启动磁盘信息，分区的GUID，启动需要的EFI文件路径，系统路径（默认为\WINDOWS），安全启动选项，PAE，XN，超时时间，启动界面语言，系统语言，设备文件，SDI等重要信息</p>
-</li>
-<li><p><strong>BCD</strong>不仅可以启动Windows操作系统，还可以引导WindowsPE（废话），Linux，Grub引导菜单，WIM镜像文件，chameleon（变色龙引导的黑苹果）等</p>
-</li>
-</ul>
-<p><strong>BCD</strong>缺失或损坏会导致蓝屏和进不去OS等问题</p>
-<p>这时，你有这几种选择：</p>
-<ol>
-<li>进<strong>WinPE</strong>，用自带的修复工具</li>
-<li>进<strong>Windows RE</strong>或用刷好Windows安装U盘（光盘）启动，进高级选项 -&gt;CMD，用<strong>bcdedit</strong>，<strong>bcdboot</strong>等命令修复</li>
-<li>重装Windows</li>
-<li>换电脑</li>
-</ol>
-<p>本篇要讲的就是<strong>BCD</strong>的常用命令（如有错误请在评论区指出）</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/cmd/" style="color: #ffa2c4">cmd</a>
-        </span>
-        
-    </div>
-    <a href="/post/bcd%E5%91%BD%E4%BB%A4%E7%9A%84%E7%94%A8%E6%B3%95.html" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/post/%E8%A7%A3%E5%86%B3VMware%20Unlocker%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BDdarwin.iso%E7%9A%84%E9%97%AE%E9%A2%98.html">
-        <h2 class="post-title">解决VMware Unlocker无法下载darwin.iso的问题</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E9%BB%91%E8%8B%B9%E6%9E%9C/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                黑苹果
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/8/4
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>之前装了Windows11,结果搞黑苹果虚拟机时发现Apple Mac OS X选项没了…</p>
-<p>于是我用最快速度找到<strong>MK-unlocker</strong>并下载</p>
-<p>然后在Getting VMware Tools中pip下载超时</p>
-<p>重试后一直找不到正确地址</p>
-<p><img src="/img/pic-1.png" alt="pic-1"></p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="color: #03a9f4">黑苹果</a>
-        </span>
-        
-    </div>
-    <a href="/post/%E8%A7%A3%E5%86%B3VMware%20Unlocker%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BDdarwin.iso%E7%9A%84%E9%97%AE%E9%A2%98.html" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/post/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91%E4%BB%8EClover%E5%88%B0OpenCore.html">
-        <h2 class="post-title">【转载】从Clover到OpenCore</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2020/10/8
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>【转载】从Clover到OpenCore<br> 2020-04-14 |  2020-05-13 |  教程 |  84181<br> 21k |  38 分钟</p>
-<p>由于是转载文章，文章中的我特指作者：SukkaW</p>
-<p>随着 OpenCore 日渐成熟、acidanthera 团队宣布放弃旗下绝大部分内核驱动（包括 Lilu、VirtualSMC、WhateverGreen、AppleALC 等）对 Clover 的兼容性支持，与其届时被迫换到 OpenCore，不如主动开始迁移。</p>
-<p>当然面对迁移，有的人会选择直接抛弃之前 Clover 的全部成果，直接从零开始配置 OpenCore。但是我相信对于大部分人来说更希望通过简简单单的修补，在现有的 EFI 的基础上迁移到 OpenCore，因此我开始撰写这篇文章。</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/post/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91%E4%BB%8EClover%E5%88%B0OpenCore.html" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/post/%E2%8A%99o%E2%8A%99-%E2%80%A6.html">
-        <h2 class="post-title">(⊙o⊙)…</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%85%B6%E4%BB%96/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                其他
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2020/8/23
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>(⊙o⊙)…</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%85%B6%E4%BB%96/" style="color: #ffa2c4">其他</a>
-        </span>
-        
-    </div>
-    <a href="/post/%E2%8A%99o%E2%8A%99-%E2%80%A6.html" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
-    
-    <span class="current">1</span>
-    
-    
-    
-    
-</div>
-
-    </div>
-    
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">闫天阳</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://math.tianyang.eu.org">Math</a>
+          
+            <div class="radio">
+              <input id="radio-event"
+                     type="checkbox"
+                      />
+              <label class="radio-skin--event" for="radio-event"></label>
             </div>
-            
+          
         </div>
-        
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-item-first">
+          <div class="line-anchor line-anchor--now"></div>
+        </div>
+        <div class="timeline-list" id="timeline-list"></div>
+        <div class="timeline-item-last">
+          <div class="line-anchor line-anchor--end"></div>
+        </div>
+      </div>
     </div>
-</div>
+  
 
     </div>
+    <div class="foot">
+  <div class="foot-inner">
+    <div class="foot__head">
+      
+        
+          <div class="foot-line">
+            <div class="matts">海</div><div class="matts">内</div><div class="matts">存</div><div class="matts">知</div><div class="matts">己</div>
+          </div>
+        
+      
+        
+          <div class="foot-line">
+            <div class="matts">天</div><div class="matts">涯</div><div class="matts">若</div><div class="matts">比</div><div class="matts">邻</div>
+          </div>
+        
+      
+    </div>
+    <div class="foot__body">
+      
+        <div class="foot-item">
+          <div class="foot-item__head">朋友</div>
+          <div class="foot-item__body">
+            
+            
+
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="/images/icon/icon-link.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://tianyang.eu.org">Backup Site</a>
+          </div>
+        
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="/images/icon/icon-link+.svg" />
+            <a class="foot-link" href="mailto:yty_01202@163.com?subject=申请https://www.tianyang.art的友链">交换友链</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+          </div>
+        </div>
+      
+      
+        <div class="foot-item">
+          <div class="foot-item__head">账号</div>
+          <div class="foot-item__body">
+            
+
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="/images/logo-github.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/yty2006">Github</a>
+          </div>
+        
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="/images/logo-zh.svg" />
+            <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/yty06">Zhihu</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+          </div>
+        </div>
+      
+      <div class="foot-item">
+        <div class="foot-item__head">联系</div>
+        <div class="foot-item__body">
+          
+
+
+  
+  
+    <div class="foot-link-group">
+      
+        
+        
+          <div class="text">
+            <img alt="link"
+                 height="20px"
+                 width="20px"
+                 src="/images/icon/icon-email.svg" />
+            <a class="foot-link" href="mailto:yty_061202@163.com">yty_061202@163.com</a>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+  
+
+
+        </div>
+        <div id="sitetime">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+    <div class="copyright">
+      ©2025 &nbsp; <a href="https://www.tianyang.art">Tianyang's Blog</a>
+    </div>
+      </div>
+<script language=javascript>
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* 
+    Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+    var t1 = Date.UTC(2025,09,23,15,00,00); //北京时间2018-2-13 00:00:00
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML="    本站居然运行了"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }
+  siteTime();
+</script>
+    </div>
+  </div>
+</div>
+
+
     
-</div>
+    
+      <script src="js/search.js"></script>
+      <script>
+        searchInitialize("search.json")
+      </script>
+    
+    <script src="js/copy-code.js"></script>
+    
+  <script type="text/javascript">
+  function HeartCurve(w, h) {
+    this.w = w;
+    this.h = h;
+    this.a = undefined;
+    this.ctx = undefined;
+    this.deg = 0;
+    this.speed = 0.4;
+    this.isPause = false;
+    this.init();
+  }
+  HeartCurve.prototype.init = function () {
+    const {
+      w,
+      h
+    } = this;
+    const canvas = document.querySelector('#heart-curve');
+    if (!canvas) throw Error('no canvas element!');
 
-                <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2020 - 2023 Crafting
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;闫天阳
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
-    </div>
-</footer>
+    this.ctx = canvas.getContext('2d');
+    this.ctx.translate(2 * w / 3, h / 2);
+    this.ctx.lineJoin = 'round';
+    this.a = w / 6.2;
+    this.id = null;
+    return this;
+  };
+  HeartCurve.prototype._drawAxis = function () {
+    const {
+      ctx,
+      w,
+      h
+    } = this;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#999";
+    ctx.beginPath();
+    ctx.moveTo(-w * 2 / 3, 0);
+    ctx.lineTo(w / 3, 0);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, -h * 0.48);
+    ctx.lineTo(0, h * 0.48);
+    ctx.stroke();
+  };
+  HeartCurve.prototype._drawCure = function () {
+    const {
+      ctx,
+      a
+    } = this;
+    ctx.beginPath();
+    let x, y, deg = 0;
+    ctx.moveTo(0, 0);
+    ctx.strokeStyle = "#ff0000";
+    while (deg <= 360) {
+      const theta = deg / 180 * Math.PI;
+      r = 2 * a * (1 - Math.cos(theta));
+      x = r * Math.cos(theta);
+      y = r * Math.sin(theta);
+      ctx.lineTo(x, y);
+      deg++;
+    }
+    ctx.stroke();
+  };
+  HeartCurve.prototype.spin = function () {
+    let {
+      a,
+      w,
+      h,
+      deg,
+      ctx
+    } = this;
+    if (deg >= 360) deg = 0;
 
-            </div>
-            
-            <transition name="fade">
-                <div id="preview" ref="preview" v-show="previewShow">
-                    <img id="preview-content" ref="previewContent" />
-                </div>
-            </transition>
-            
-        </div>
-        <script src="/js/main.js"></script>
-        
-        <script src="/click.js" type="module"></script>
-    </body>
+    ctx.clearRect(-w / 3 * 2, -h / 2, w, h);
+    const theta = deg / 180 * Math.PI;
+    this._drawAxis();
+    ctx.lineWidth = 2;
+    this._drawCure();
+    ctx.strokeStyle = "#000";
+    ctx.beginPath();
+    ctx.arc(-a, 0, a, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(2 * a * Math.cos(theta) - a, 2 * a * Math.sin(theta), a, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    let r = 2 * a * (1 - Math.cos(theta));
+    let x = r * Math.cos(theta);
+    let y = r * Math.sin(theta);
+    ctx.arc(x, y, 3, 0, 2 * Math.PI);
+    ctx.fill();
+    if (this.isPause) return;
+
+    this.deg = deg + this.speed;
+    this.id = window.requestAnimationFrame(this.spin.bind(this));
+  };
+  HeartCurve.prototype.pause = function () {
+    this.isPause = true;
+    if (window.cancelAnimationFrame) {
+      window.cancelAnimationFrame(this.id);
+    }
+  };
+  HeartCurve.prototype.resume = function () {
+    this.isPause = false;
+    this.spin();
+  };
+
+  (function () {
+    const heartCurve = new HeartCurve(400, 400);
+    heartCurve.spin();
+    mobileAdjust(window.matchMedia("(hover:none"));
+    window.matchMedia("(hover:none)").addListener(mobileAdjust);
+
+    function mobileAdjust(media) {
+      const wallEl = document.querySelector('#wall-main')
+      if (!media.matches) {
+        heartCurve.pause();
+        wallEl.addEventListener('mouseenter', () => {
+          console.log('resume');
+          heartCurve.resume();
+        });
+        wallEl.addEventListener('mouseleave', () => {
+          console.log('pause');
+          heartCurve.pause();
+        });
+      }
+    }
+  })();
+</script>
+  
+  
+  <script type="text/javascript">
+    const timelineData = {"types":["article","app","event"],"posts":[]}
+    const {types, posts} = timelineData
+    listEl = document.querySelector("#timeline-list");
+
+    elRefs = getElRefs(types)
+    bindListener(types, elRefs)
+
+    setTimeout(init.bind(this, types, elRefs))
+
+    function getElRefs(types) {
+      return types.map(type => document.querySelector(`#radio-${type}`))
+    }
+
+    function bindListener(names, els) {
+      names.map((name, i) => els[i].addEventListener('change', e => updateList(name, e.target.checked)))
+    }
+
+    function updateList(type, value) {
+      listDom
+        .filter(line => line.type === type)
+        .forEach(line => {
+          line.el.className = line
+            .el
+            .className
+            .replace(
+              /(--hidden)?$/, value
+              ? ""
+              : "--hidden");
+        });
+    }
+
+    const listDom = posts.map(t => getLine(t));
+    listEl.append(...listDom.map(i => i.el));
+
+    function getLine(data) {
+      const item = document.createElement("DIV");
+      item.className = `timeline-item-${data.type} timeline-item--hidden`;
+      item.innerHTML = `
+                          <div class="line-date">
+                          <div class="line-date-tag">${data.date}</div></div>
+                          <div class="line-anchor"></div>
+                          <div class="line-title">
+                              <img class="text-icon" src="${data.icon}" /><a class="timeline-post" href="${data.path}">${data.title}</a>
+                          </div>
+                          `;
+      return {el: item, type: data.type};
+    };
+
+    function init(names, els) {
+      names.map((name, i) => updateList(name, els[i].checked))
+    }
+  </script>
+
+
+  </body>
 </html>
